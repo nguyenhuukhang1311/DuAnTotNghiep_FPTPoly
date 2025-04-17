@@ -6,10 +6,7 @@
         public DateTime? CreatedDate { get; set; }
         public DateTime? CancelDate { get; set; }
         public DateTime? ConfirmedDate { get; set; }
-        public bool? IsCancelled { get; set; }
-        public bool? IsDelivering { get; set; }
-        public bool? IsConfirmed { get; set; }
-        public bool? IsCompleted { get; set; }
+        public OrderStatus? Status { get; set; }
         public decimal? Total {  get; set; }
         public string? ManagerId { get; set; }
         public User? Manager { get; set; }

@@ -3,12 +3,72 @@
   "WorkspaceRootPath": "D:\\Code\\NET_1061\\MenShop_Assignment\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\branch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\branch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\categoryproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\categoryproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\storagedetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\storagedetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\storage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\storage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\size.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\size.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\productdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\productdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\outputreceiptdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\outputreceiptdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\outputreceipt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\outputreceipt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\inputreceiptdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\inputreceiptdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\inputreceipt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\inputreceipt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\imagesproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\imagesproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\historyprice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\historyprice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\customeraddress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\customeraddress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\color.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\color.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\cartdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,32 +79,12 @@
       "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\outputreceipt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\outputreceipt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\inputreceipt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\inputreceipt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\branchdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\branchdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\customeraddress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\customeraddress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\categoryproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\categoryproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\branch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\branch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -67,42 +107,6 @@
       "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\storage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\storage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\size.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\size.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\productdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\productdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\imagesproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\imagesproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\color.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\color.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\storagedetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\storagedetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\outputreceiptdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\outputreceiptdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|d:\\code\\net_1061\\menshop_assignment\\menshop_assignment\\datas\\fabric.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{79D209C6-836C-4D4D-AC08-1DD25CA46DD5}|MenShop_Assignment\\MenShop_Assignment.csproj|solutionrelative:menshop_assignment\\datas\\fabric.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -114,7 +118,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -133,194 +137,8 @@
               "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Order.cs",
-              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Order.cs",
-              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\Order.cs",
-              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Order.cs",
-              "RelativeToolTip": "MenShop_Assignment\\Datas\\Order.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T06:19:15.216Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "InputReceipt.cs",
-              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\InputReceipt.cs",
-              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\InputReceipt.cs",
-              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\InputReceipt.cs",
-              "RelativeToolTip": "MenShop_Assignment\\Datas\\InputReceipt.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T04:36:18.937Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Branch.cs",
-              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Branch.cs",
-              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\Branch.cs",
-              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Branch.cs",
-              "RelativeToolTip": "MenShop_Assignment\\Datas\\Branch.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T05:01:09.52Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "HistoryPrice.cs",
-              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\HistoryPrice.cs",
-              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\HistoryPrice.cs",
-              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\HistoryPrice.cs",
-              "RelativeToolTip": "MenShop_Assignment\\Datas\\HistoryPrice.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T04:26:14.067Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\ApplicationDbContext.cs",
-              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\ApplicationDbContext.cs",
-              "RelativeToolTip": "MenShop_Assignment\\Datas\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAO8AAAAAAAAAAAAmwJkAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T04:09:25.696Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\User.cs",
-              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\User.cs",
-              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\User.cs",
-              "RelativeToolTip": "MenShop_Assignment\\Datas\\User.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAA0wA4AAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T04:33:20.042Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "CategoryProduct.cs",
-              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\CategoryProduct.cs",
-              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\CategoryProduct.cs",
-              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\CategoryProduct.cs",
-              "RelativeToolTip": "MenShop_Assignment\\Datas\\CategoryProduct.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T04:12:19.357Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "CustomerAddress.cs",
-              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\CustomerAddress.cs",
-              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\CustomerAddress.cs",
-              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\CustomerAddress.cs",
-              "RelativeToolTip": "MenShop_Assignment\\Datas\\CustomerAddress.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T06:37:34.342Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "OutputReceipt.cs",
-              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\OutputReceipt.cs",
-              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\OutputReceipt.cs",
-              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\OutputReceipt.cs",
-              "RelativeToolTip": "MenShop_Assignment\\Datas\\OutputReceipt.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T04:58:52.855Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "BranchDetail.cs",
-              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\BranchDetail.cs",
-              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\BranchDetail.cs",
-              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\BranchDetail.cs",
-              "RelativeToolTip": "MenShop_Assignment\\Datas\\BranchDetail.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T05:07:09.415Z"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Cart.cs",
-              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Cart.cs",
-              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\Cart.cs",
-              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Cart.cs",
-              "RelativeToolTip": "MenShop_Assignment\\Datas\\Cart.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T06:38:56.196Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CartDetail.cs",
-              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\CartDetail.cs",
-              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\CartDetail.cs",
-              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\CartDetail.cs",
-              "RelativeToolTip": "MenShop_Assignment\\Datas\\CartDetail.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T06:42:33.735Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "20250416030557_Init.cs",
-              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Migrations\\20250416030557_Init.cs",
-              "RelativeDocumentMoniker": "MenShop_Assignment\\Migrations\\20250416030557_Init.cs",
-              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Migrations\\20250416030557_Init.cs",
-              "RelativeToolTip": "MenShop_Assignment\\Migrations\\20250416030557_Init.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-16T03:05:58.084Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Program.cs",
-              "RelativeDocumentMoniker": "MenShop_Assignment\\Program.cs",
-              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Program.cs",
-              "RelativeToolTip": "MenShop_Assignment\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T04:08:03.598Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\appsettings.json",
-              "RelativeDocumentMoniker": "MenShop_Assignment\\appsettings.json",
-              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\appsettings.json",
-              "RelativeToolTip": "MenShop_Assignment\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-15T06:48:24.925Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
               "Title": "Storage.cs",
               "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Storage.cs",
               "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\Storage.cs",
@@ -332,79 +150,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Size.cs",
-              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Size.cs",
-              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\Size.cs",
-              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Size.cs",
-              "RelativeToolTip": "MenShop_Assignment\\Datas\\Size.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T04:20:35.317Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "ProductDetail.cs",
-              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\ProductDetail.cs",
-              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\ProductDetail.cs",
-              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\ProductDetail.cs",
-              "RelativeToolTip": "MenShop_Assignment\\Datas\\ProductDetail.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAowBQAAABTAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T04:22:52.25Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Product.cs",
-              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Product.cs",
-              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\Product.cs",
-              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Product.cs",
-              "RelativeToolTip": "MenShop_Assignment\\Datas\\Product.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T04:10:35.977Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "20250415094212_Init.cs",
-              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Migrations\\20250415094212_Init.cs",
-              "RelativeDocumentMoniker": "MenShop_Assignment\\Migrations\\20250415094212_Init.cs",
-              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Migrations\\20250415094212_Init.cs",
-              "RelativeToolTip": "MenShop_Assignment\\Migrations\\20250415094212_Init.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAgwCsAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T09:42:12.841Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "ImagesProduct.cs",
-              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\ImagesProduct.cs",
-              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\ImagesProduct.cs",
-              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\ImagesProduct.cs",
-              "RelativeToolTip": "MenShop_Assignment\\Datas\\ImagesProduct.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T04:30:43.711Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Color.cs",
-              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Color.cs",
-              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\Color.cs",
-              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Color.cs",
-              "RelativeToolTip": "MenShop_Assignment\\Datas\\Color.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T04:22:16.102Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 2,
               "Title": "StorageDetail.cs",
               "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\StorageDetail.cs",
               "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\StorageDetail.cs",
@@ -416,7 +162,69 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 1,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\User.cs",
+              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\User.cs",
+              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\User.cs",
+              "RelativeToolTip": "MenShop_Assignment\\Datas\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T04:33:20.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProductDetail.cs",
+              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\ProductDetail.cs",
+              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\ProductDetail.cs",
+              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\ProductDetail.cs",
+              "RelativeToolTip": "MenShop_Assignment\\Datas\\ProductDetail.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwBQAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T04:22:52.25Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Product.cs",
+              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\Product.cs",
+              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Product.cs",
+              "RelativeToolTip": "MenShop_Assignment\\Datas\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T04:10:35.977Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CategoryProduct.cs",
+              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\CategoryProduct.cs",
+              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\CategoryProduct.cs",
+              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\CategoryProduct.cs",
+              "RelativeToolTip": "MenShop_Assignment\\Datas\\CategoryProduct.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T04:12:19.357Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Size.cs",
+              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Size.cs",
+              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\Size.cs",
+              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Size.cs",
+              "RelativeToolTip": "MenShop_Assignment\\Datas\\Size.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T04:20:35.317Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "OutputReceiptDetail.cs",
               "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\OutputReceiptDetail.cs",
               "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\OutputReceiptDetail.cs",
@@ -428,7 +236,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 8,
+              "Title": "OutputReceipt.cs",
+              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\OutputReceipt.cs",
+              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\OutputReceipt.cs",
+              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\OutputReceipt.cs",
+              "RelativeToolTip": "MenShop_Assignment\\Datas\\OutputReceipt.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T04:58:52.855Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "OrderDetail.cs",
               "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\OrderDetail.cs",
               "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\OrderDetail.cs",
@@ -440,7 +260,199 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Order.cs",
+              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Order.cs",
+              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\Order.cs",
+              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Order.cs",
+              "RelativeToolTip": "MenShop_Assignment\\Datas\\Order.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T06:19:15.216Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "InputReceiptDetail.cs",
+              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\InputReceiptDetail.cs",
+              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\InputReceiptDetail.cs",
+              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\InputReceiptDetail.cs",
+              "RelativeToolTip": "MenShop_Assignment\\Datas\\InputReceiptDetail.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T02:40:38.637Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ImagesProduct.cs",
+              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\ImagesProduct.cs",
+              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\ImagesProduct.cs",
+              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\ImagesProduct.cs",
+              "RelativeToolTip": "MenShop_Assignment\\Datas\\ImagesProduct.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T04:30:43.711Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "HistoryPrice.cs",
+              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\HistoryPrice.cs",
+              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\HistoryPrice.cs",
+              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\HistoryPrice.cs",
+              "RelativeToolTip": "MenShop_Assignment\\Datas\\HistoryPrice.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T04:26:14.067Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CustomerAddress.cs",
+              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\CustomerAddress.cs",
+              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\CustomerAddress.cs",
+              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\CustomerAddress.cs",
+              "RelativeToolTip": "MenShop_Assignment\\Datas\\CustomerAddress.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T06:37:34.342Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "InputReceipt.cs",
+              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\InputReceipt.cs",
+              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\InputReceipt.cs",
+              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\InputReceipt.cs",
+              "RelativeToolTip": "MenShop_Assignment\\Datas\\InputReceipt.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T04:36:18.937Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Color.cs",
+              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Color.cs",
+              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\Color.cs",
+              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Color.cs",
+              "RelativeToolTip": "MenShop_Assignment\\Datas\\Color.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T04:22:16.102Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "CartDetail.cs",
+              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\CartDetail.cs",
+              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\CartDetail.cs",
+              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\CartDetail.cs",
+              "RelativeToolTip": "MenShop_Assignment\\Datas\\CartDetail.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T06:42:33.735Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Cart.cs",
+              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Cart.cs",
+              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\Cart.cs",
+              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Cart.cs",
+              "RelativeToolTip": "MenShop_Assignment\\Datas\\Cart.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T06:38:56.196Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "BranchDetail.cs",
+              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\BranchDetail.cs",
+              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\BranchDetail.cs",
+              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\BranchDetail.cs",
+              "RelativeToolTip": "MenShop_Assignment\\Datas\\BranchDetail.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T05:07:09.415Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Branch.cs",
+              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Branch.cs",
+              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\Branch.cs",
+              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Branch.cs",
+              "RelativeToolTip": "MenShop_Assignment\\Datas\\Branch.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T05:01:09.52Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\ApplicationDbContext.cs",
+              "RelativeToolTip": "MenShop_Assignment\\Datas\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAO8AAAAAAAAAAAAmwJkAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T04:09:25.696Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "20250416030557_Init.cs",
+              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Migrations\\20250416030557_Init.cs",
+              "RelativeDocumentMoniker": "MenShop_Assignment\\Migrations\\20250416030557_Init.cs",
+              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Migrations\\20250416030557_Init.cs",
+              "RelativeToolTip": "MenShop_Assignment\\Migrations\\20250416030557_Init.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T03:05:58.084Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Program.cs",
+              "RelativeDocumentMoniker": "MenShop_Assignment\\Program.cs",
+              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Program.cs",
+              "RelativeToolTip": "MenShop_Assignment\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T04:08:03.598Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 25,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\appsettings.json",
+              "RelativeDocumentMoniker": "MenShop_Assignment\\appsettings.json",
+              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\appsettings.json",
+              "RelativeToolTip": "MenShop_Assignment\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-15T06:48:24.925Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "20250415094212_Init.cs",
+              "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Migrations\\20250415094212_Init.cs",
+              "RelativeDocumentMoniker": "MenShop_Assignment\\Migrations\\20250415094212_Init.cs",
+              "ToolTip": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Migrations\\20250415094212_Init.cs",
+              "RelativeToolTip": "MenShop_Assignment\\Migrations\\20250415094212_Init.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwCsAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T09:42:12.841Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
               "Title": "Fabric.cs",
               "DocumentMoniker": "D:\\Code\\NET_1061\\MenShop_Assignment\\MenShop_Assignment\\Datas\\Fabric.cs",
               "RelativeDocumentMoniker": "MenShop_Assignment\\Datas\\Fabric.cs",

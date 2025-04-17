@@ -12,10 +12,7 @@
         public DateTime? CreatedDate { get; set; }
         public DateTime? CompletedDate { get; set; }
         public DateTime? PaidDate { get; set; }
-        public bool? IsCancelledd { get; set; }
-        public bool? IsDelivering { get; set; }
-        public bool? IsCompleted { get; set; }
-        public bool? IsPaid { get; set; }
+        public OrderStatus? Status { get; set; }
         public bool? IsOnline { get; set; }
         public decimal? Total {  get; set; }
         public ICollection<OrderDetail>? Details { get; set; }

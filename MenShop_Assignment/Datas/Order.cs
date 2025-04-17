@@ -12,7 +12,7 @@
         public DateTime? CreatedDate { get; set; }
         public DateTime? CompletedDate { get; set; }
         public DateTime? PaidDate { get; set; }
-        public bool? IsCancelld { get; set; }
+        public bool? IsCancelledd { get; set; }
         public bool? IsDelivering { get; set; }
         public bool? IsCompleted { get; set; }
         public bool? IsPaid { get; set; }

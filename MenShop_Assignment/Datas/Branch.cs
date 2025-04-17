@@ -4,7 +4,7 @@
     {
         public int BranchId {  get; set; }
         public string? Address { get; set; }
-        public string? UserId {  get; set; }
+        public string? ManagerId {  get; set; }
         public User? Manager { get; set; }
         public ICollection<User>? Employees { get; set; }
         public ICollection<BranchDetail>? BranchDetails { get; set; }

@@ -1,4 +1,4 @@
-﻿namespace MenShop_Assignment.Datas
+﻿namespace MenShop_Assignment.Extensions
 {
     public enum OrderStatus
     {

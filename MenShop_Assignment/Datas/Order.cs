@@ -1,4 +1,6 @@
-﻿namespace MenShop_Assignment.Datas
+﻿using MenShop_Assignment.Extensions;
+
+namespace MenShop_Assignment.Datas
 {
     public class Order
     {
@@ -16,5 +18,7 @@
         public bool? IsOnline { get; set; }
         public decimal? Total {  get; set; }
         public ICollection<OrderDetail>? Details { get; set; }
-    }
+		// Thêm quan hệ với Payment
+		public ICollection<Payment>? Payments { get; set; }
+	}
 }

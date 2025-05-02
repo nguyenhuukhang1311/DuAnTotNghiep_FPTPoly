@@ -56,12 +56,27 @@ namespace MenShop_Assignment.Datas
             modelBuilder.Entity<Size>().HasKey(s=>s.SizeId);
             modelBuilder.Entity<Storage>().HasKey(s=>s.StorageId);
             modelBuilder.Entity<StorageDetail>().HasKey(s => new { s.StorageId, s.ProductDetailId });
-
-            // User - Branch (Manager)
-            modelBuilder.Entity<Branch>()
+			modelBuilder.Entity<Payment>().HasKey(p => p.PaymentId);
+			modelBuilder.Entity<PaymentDiscount>().HasKey(pd => pd.DiscountId);
+			// User - Branch (Manager)
+			modelBuilder.Entity<Branch>()
                 .HasOne(b => b.Manager)
                 .WithOne(u => u.ManagedBranch)
-                .HasForeignKey<Branch>(b => b.UserId);
+                .HasForeignKey<Branch>(b => b.ManagerId);
+
+			// Cấu hình cho Payment
+			modelBuilder.Entity<Payment>().HasKey(p => p.PaymentId);
+			modelBuilder.Entity<Payment>()
+				.HasOne(p => p.Order)
+				.WithMany(o => o.Payments)
+				.HasForeignKey(p => p.OrderId);
+
+			// Cấu hình cho PaymentDiscount
+			modelBuilder.Entity<PaymentDiscount>().HasKey(pd => pd.DiscountId);
+            modelBuilder.Entity<PaymentDiscount>()
+                .HasOne(pd => pd.Payment)
+                .WithMany(p => p.Discounts)
+                .HasForeignKey(pd => pd.PaymentId);
 
             // User - Branch (Employee)
             modelBuilder.Entity<User>()

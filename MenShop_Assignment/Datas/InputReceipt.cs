@@ -1,4 +1,6 @@
-﻿namespace MenShop_Assignment.Datas
+﻿using MenShop_Assignment.Extensions;
+
+namespace MenShop_Assignment.Datas
 {
     public class InputReceipt
     {

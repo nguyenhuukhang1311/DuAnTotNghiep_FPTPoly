@@ -7,5 +7,6 @@ namespace MenShop_Assignment.Repositories
     {
         Task<List<BranchProductViewModel>> GetBranchProductsAsync(int branchId);
         Task<List<BranchProductDetailViewModel>> GetBranchProductDetailAsync(int branchId, int productDetailId);
+        Task<List<BranchProductViewModel>> SmartSearchProductsAsync(int branchId, string searchTerm);
     }
 }

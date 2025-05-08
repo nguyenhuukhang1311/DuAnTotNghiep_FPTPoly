@@ -1,10 +1,12 @@
-﻿using MenShop_Assignment.Datas;
+﻿using System.Text.RegularExpressions;
+using MenShop_Assignment.Datas;
 using MenShop_Assignment.Mapper;
 using MenShop_Assignment.Models;
 using MenShop_Assignment.Models.BranchModel;
 using MenShop_Assignment.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace MenShop_Assignment.APIControllers
 {
@@ -29,6 +31,31 @@ namespace MenShop_Assignment.APIControllers
         {
             return await _branchProductRepository.GetBranchProductDetailAsync(branchId, productId);
             
+        }
+
+        [HttpGet("branch/{branchId}/search")]
+        public async Task<ActionResult<List<BranchProductViewModel>>> SmartSearchProducts(
+            int branchId,
+            [FromQuery] string searchTerm)
+        {
+            if (string.IsNullOrEmpty(searchTerm))
+            {
+                return BadRequest("Vui lòng nhập từ khóa tìm kiếm");
+            }
+
+            try
+            {
+                var products = await _branchProductRepository.SmartSearchProductsAsync(branchId, searchTerm);
+                return Ok(products);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Lỗi khi tìm kiếm sản phẩm: {ex.Message}");
+            }
         }
     }
 }

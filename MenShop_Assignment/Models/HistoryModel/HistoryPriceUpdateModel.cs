@@ -1,8 +1,10 @@
-﻿namespace MenShop_Assignment.Datas
+﻿using MenShop_Assignment.Datas;
+
+namespace MenShop_Assignment.Models.HistoryModel
 {
-    public class HistoryPrice
+    public class HistoryPriceUpdateModel
     {
-        public int Id { get; set; }
+
         public int ProductDetailId { get; set; }
         public ProductDetail? ProductDetail { get; set; }
         public decimal? InputPrice { get; set; }

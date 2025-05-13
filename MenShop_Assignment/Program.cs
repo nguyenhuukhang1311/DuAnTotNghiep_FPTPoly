@@ -14,6 +14,12 @@ builder.Services.AddScoped<BranchProductRepository>();
 builder.Services.AddScoped<BranchMapper>();
 builder.Services.AddScoped<InputReceiptRepository>();
 builder.Services.AddScoped<InputReceiptMapper>();
+builder.Services.AddScoped<SizeRepository>();
+builder.Services.AddScoped<SizeMapper>();
+builder.Services.AddScoped<ColorRepository>();
+builder.Services.AddScoped<ColorMapper>();
+builder.Services.AddScoped<FabricRepository>();
+builder.Services.AddScoped<FabricMapper>();
 //Khu vưc của bảo ---------------------------------------------------------------
 // Add services to the container.
 builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();

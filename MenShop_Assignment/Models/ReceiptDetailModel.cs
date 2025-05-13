@@ -2,7 +2,7 @@
 
 namespace MenShop_Assignment.Models
 {
-	public class InputReceiptDetailViewModel
+	public class ReceiptDetailViewModel
 	{
 		public string? Name { get; set; }
 		public string? Color { get; set; }
@@ -10,5 +10,6 @@ namespace MenShop_Assignment.Models
 		public string? Fabric {  get; set; }
 		public int? Quantity { get; set; }
 		public decimal? Price { get; set; }
+		public string? ImageFullPath { get; set; }
 	}
 }

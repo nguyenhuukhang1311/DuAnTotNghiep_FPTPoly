@@ -1,20 +1,34 @@
 ﻿using MenShop_Assignment.Datas;
-using MenShop_Assignment.Models.ProductModels;
+using MenShop_Assignment.Models.CategoryModels;
+using MenShop_Assignment.Models.ProductModels.ReponseDTO;
+using MenShop_Assignment.Models.ProductModels.ViewModel;
 
 namespace MenShop_Assignment.Mapper.MapperProduct
 {
     public class ProductMapper
     {
+
+        public  IEnumerable<CategoryGroupViewModel> GroupByCategory(IEnumerable<Product> products)
+        {
+            return products
+                .GroupBy(p => p.Category?.Name ?? "Không tồn tại")
+                .Select(group => new CategoryGroupViewModel
+                {
+                    CategoryName = group.Key,
+                    Products = group.Select(ToProductViewModel).ToList()
+                });
+        }
+
         // Ánh xạ Product -> ProductViewModel
-        public static ProductViewModel ToProductViewModel(Product product)
+        public ProductViewModel ToProductViewModel(Product product)
         {
             return new ProductViewModel
             {
                 ProductId = product.ProductId,
+                CategoryName = product.Category?.Name ?? string.Empty,
                 ProductName = product.ProductName ?? string.Empty,
                 Description = product.Description ?? string.Empty,
                 Status = product.Status ?? false,
-                CategoryName = product.Category?.Name ?? string.Empty,
                 ProductDetails = product.ProductDetails?
                     .Select(pd => ToProductDetailViewModel(pd))
                     .ToList() ?? new List<ProductDetailViewModel>()
@@ -22,31 +36,8 @@ namespace MenShop_Assignment.Mapper.MapperProduct
         }
 
         // Ánh xạ ProductDetail -> ProductDetailViewModel
-        public static ProductDetailViewModel ToProductDetailViewModel(ProductDetail detail)
+        public ProductDetailViewModel ToProductDetailViewModel(ProductDetail detail)
         {
-            // Gom nhóm chi tiết kho theo tên danh mục (StorageName)
-            var storageViews = detail.StorageDetails?
-                .GroupBy(sd => sd.Storage?.CategoryProduct?.Name ?? "Không xác định")
-                .Select(group => new StorageViewModel
-                {
-                    StorageName = group.Key,
-                    Details = group.Select(sd => new StorageDetailViewModel
-                    {
-                        SizeName = detail.Size?.Name ?? string.Empty,
-                        ColorName = detail.Color?.Name ?? string.Empty,
-                        FabricName = detail.Fabric?.Name ?? string.Empty,
-                        Quantity = sd.Quantity ?? 0
-                    }).ToList()
-                }).ToList() ?? new List<StorageViewModel>();
-
-            // Ánh xạ chi tiết theo kho (Branch)
-            var branchDetails = detail.BranchDetails?
-                .Select(bd => new BranchDetailViewModel
-                {
-                    BranchId = bd.BranchId,
-                    Price = bd.Price ?? 0,
-                    Quantity = bd.Quantity ?? 0
-                }).ToList() ?? new List<BranchDetailViewModel>();
 
             return new ProductDetailViewModel
             {
@@ -55,18 +46,13 @@ namespace MenShop_Assignment.Mapper.MapperProduct
                 SizeName = detail.Size?.Name ?? string.Empty,
                 ColorName = detail.Color?.Name ?? string.Empty,
                 FabricName = detail.Fabric?.Name ?? string.Empty,
-                ToTalQuantityInStorage = storageViews
-                    .SelectMany(s => s.Details)
-                    .Sum(d => d.Quantity)
-                    .ToString(),
-                StorageQuantities = storageViews,
-                BranchDetails = branchDetails,
                 HistoryPrices = detail.HistoryPrices?
                     .Select(hp => ToHistoryPriceViewModel(hp))
                     .ToList() ?? new List<HistoryPriceViewModel>(),
                 Images = detail.Images?
                     .Select(img => ToImageProductViewModel(img))
-                    .ToList() ?? new List<ImageProductViewModel>()
+                    .ToList() ?? new List<ImageProductViewModel>(),
+                
             };
         }
 
@@ -75,26 +61,89 @@ namespace MenShop_Assignment.Mapper.MapperProduct
 
 
         // Ánh xạ HistoryPrice -> HistoryPriceViewModel
-        public static HistoryPriceViewModel ToHistoryPriceViewModel(HistoryPrice price)
+        public HistoryPriceViewModel ToHistoryPriceViewModel(HistoryPrice price)
         {
             return new HistoryPriceViewModel
             {
                 InputPrice = price.InputPrice ?? 0,
                 OnlinePrice = price.OnlinePrice ?? 0,
                 OfflinePrice = price.OfflinePrice ?? 0,
+                SellPrice = price.SellPrice ?? 0,
                 UpdatedDate = price.UpdatedDate ?? DateTime.MinValue
             };
         }
 
         // Ánh xạ ImagesProduct -> ImageProductViewModel
-        public static ImageProductViewModel ToImageProductViewModel(ImagesProduct image)
+        public ImageProductViewModel ToImageProductViewModel(ImagesProduct image)
         {
             return new ImageProductViewModel
             {
                 FullPath = string.IsNullOrEmpty(image.FullPath)
                     ? $"http://localhost:5014/StaticFiles/Images/{image.Path}"
+                    : image.FullPath,
+                ProductDetailId = image.ProductDetailId
+            };
+        }
+
+        //reponse
+        public ProductResponseDTO ToCreateProductResponse(Product product)
+        {
+            return new ProductResponseDTO
+            {
+                ProductId = product.ProductId,
+                ProductName = product.ProductName ?? string.Empty,
+                Description = product.Description ?? string.Empty,
+                CategoryId = product.CategoryId ?? 0,
+                Status = product.Status ?? false,
+                ProductDetails = product.ProductDetails.Select(detail => new ProductDetailResponse
+                {
+                    ProductDetailId = detail.DetailId,
+                    SizeId = detail.SizeId,
+                    ColorId = detail.ColorId,
+                    FabricId = detail.FabricId,
+                    Images = detail.Images?.Select(img => new ImageResponse
+                    {
+                        ImageId = img.Id,
+                        ImageUrl = string.IsNullOrEmpty(img.FullPath)
+                            ? $"http://localhost:5014/StaticFiles/Images/{img.Path}"
+                            : img.FullPath
+                    }).ToList() ?? new List<ImageResponse>()
+                }).ToList()
+            };
+        }
+        public CreateProductResponse ToCreateOnlyProductResponse(Product product)
+        {
+            return new CreateProductResponse
+            {
+                ProductId = product.ProductId,
+                ProductName = product.ProductName ?? string.Empty,
+                Description = product.Description ?? string.Empty,
+                CategoryId = product.CategoryId ?? 0,
+                Status = product.Status ?? false,
+            };
+        }
+        public CreateProductDetailResponse ToCreateProductDetailResponse(ProductDetail detail)
+        {
+            return new CreateProductDetailResponse
+            {
+                ProductDetailId = detail.DetailId,
+                ProductId = detail.ProductId,
+                SizeId = detail.SizeId,
+                ColorId = detail.ColorId,
+                FabricId = detail.FabricId
+            };
+        }
+        public CreateImageResponse ToCreateImageResponse(ImagesProduct image)
+        {
+            return new CreateImageResponse
+            {
+                ImageId = image.Id,
+                ProductDetailId = image.ProductDetailId,
+                ImageUrl = string.IsNullOrEmpty(image.FullPath)
+                    ? $"http://localhost:5014/StaticFiles/Images/{image.Path}"
                     : image.FullPath
             };
         }
+
     }
 }

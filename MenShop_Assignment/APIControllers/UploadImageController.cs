@@ -7,25 +7,19 @@ namespace MenShop_Assignment.APIControllers
     public class UploadImageController : ControllerBase
     {
         [HttpPost]
-        public IActionResult UploadFile()
+        public IActionResult UploadFiles()
         {
             try
             {
-                var file = Request.Form.Files[0];
-                if (file == null || file.Length == 0)
+                var files = Request.Form.Files;
+                if (files == null || files.Count == 0)
                 {
                     return BadRequest("Chưa có tệp nào được tải lên.");
                 }
 
-                // Kiểm tra loại tệp (ví dụ: chỉ cho phép ảnh)
                 var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
-                var extension = Path.GetExtension(file.FileName).ToLower();
-                if (Array.IndexOf(allowedExtensions, extension) < 0)
-                {
-                    return BadRequest("Loại tệp không hợp lệ. Chỉ cho phép các loại .jpg, .jpeg, .png, .gif.");
-                }
+                var uploadedFilePaths = new List<string>();
 
-                // Tạo thư mục lưu trữ nếu không tồn tại
                 var folderName = Path.Combine("StaticFiles", "Images");
                 var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
 
@@ -34,24 +28,34 @@ namespace MenShop_Assignment.APIControllers
                     Directory.CreateDirectory(pathToSave);
                 }
 
-                var originalFileName = Path.GetFileName(file.FileName); // tránh lỗi FormatException
-                var fileName = $"{Guid.NewGuid()}_{originalFileName}";
-                var fullPath = Path.Combine(pathToSave, fileName);
-                var dbPath = Path.Combine(folderName, fileName);
-
-                // Lưu tệp vào đĩa
-                using (var stream = new FileStream(fullPath, FileMode.Create))
+                foreach (var file in files)
                 {
-                    file.CopyTo(stream);
+                    var extension = Path.GetExtension(file.FileName).ToLower();
+                    if (!allowedExtensions.Contains(extension))
+                    {
+                        return BadRequest("Một hoặc nhiều tệp có định dạng không hợp lệ.");
+                    }
+
+                    var originalFileName = Path.GetFileName(file.FileName);
+                    var fileName = $"{Guid.NewGuid()}_{originalFileName}";
+                    var fullPath = Path.Combine(pathToSave, fileName);
+                    var dbPath = Path.Combine(folderName, fileName);
+
+                    using (var stream = new FileStream(fullPath, FileMode.Create))
+                    {
+                        file.CopyTo(stream);
+                    }
+
+                    uploadedFilePaths.Add(dbPath);
                 }
 
-                // Trả về đường dẫn tệp đã tải lên
-                return Ok(new { FilePath = dbPath });
+                return Ok(new { FilePaths = uploadedFilePaths });
             }
             catch (Exception ex)
             {
                 return BadRequest($"Lỗi khi tải lên tệp: {ex.Message}");
             }
         }
+
     }
 }

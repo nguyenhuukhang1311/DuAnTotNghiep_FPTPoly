@@ -2,12 +2,19 @@
 using MenShop_Assignment.Models.CategoryModels;
 using MenShop_Assignment.Models.ProductModels.ReponseDTO;
 using MenShop_Assignment.Models.ProductModels.ViewModel;
+using MenShop_Assignment.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace MenShop_Assignment.Mapper.MapperProduct
 {
+
     public class ProductMapper
     {
-
+        private readonly ApplicationDbContext _context;
+        public ProductMapper(ApplicationDbContext context)
+        {
+            _context = context;
+        }
         public  IEnumerable<CategoryGroupViewModel> GroupByCategory(IEnumerable<Product> products)
         {
             return products
@@ -66,8 +73,6 @@ namespace MenShop_Assignment.Mapper.MapperProduct
             return new HistoryPriceViewModel
             {
                 InputPrice = price.InputPrice ?? 0,
-                OnlinePrice = price.OnlinePrice ?? 0,
-                OfflinePrice = price.OfflinePrice ?? 0,
                 SellPrice = price.SellPrice ?? 0,
                 UpdatedDate = price.UpdatedDate ?? DateTime.MinValue
             };
@@ -145,5 +150,19 @@ namespace MenShop_Assignment.Mapper.MapperProduct
             };
         }
 
+        ///
+        public ProductViewModel1 ToProductStorageView(Product product)
+        {
+            int productDetailId = _context.ProductDetails.Where(x => x.ProductId == product.ProductId).FirstOrDefault().DetailId;
+            return new ProductViewModel1
+            {
+                ProductId = product.ProductId,
+                ProductName = product.ProductName,
+                Description = product.Description,
+                Status = product.Status,
+                CategoryName = _context.CategoryProducts.Where(x => x.CategoryId == product.CategoryId).FirstOrDefault().Name,
+                ImageUrls = _context.ImagesProducts.Where(x => x.ProductDetailId == productDetailId).FirstOrDefault().FullPath,
+            };
+        }
     }
 }

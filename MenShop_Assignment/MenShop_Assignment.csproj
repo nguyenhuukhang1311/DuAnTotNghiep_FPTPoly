@@ -27,8 +27,9 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+
     <Folder Include="DTOs\" />
     <Folder Include="StaticFiles\" />
-  </ItemGroup>
 
+  </ItemGroup>
 </Project>

@@ -1,0 +1,46 @@
+﻿
+using MenShop_Assignment.Models.Account;
+using MenShop_Assignment.Repositories.AccountRepository;
+using Microsoft.AspNetCore.Mvc;
+
+[Route("api/[controller]")]
+[ApiController]
+public class AccountController : ControllerBase
+{
+    private readonly IAccountRepository _accountRepo;
+    private readonly IConfiguration _configuration;
+
+    public AccountController(IAccountRepository accountRepo, IConfiguration configuration)
+    {
+        _accountRepo = accountRepo;
+        _configuration = configuration;
+    }
+
+    [HttpPost("register")]
+    public async Task<IActionResult> Register([FromBody] UserRegister model)
+    {
+        if (!ModelState.IsValid) return BadRequest(ModelState);
+
+        var result = await _accountRepo.RegisterAsync(model);
+        if (!result.Succeeded) return BadRequest(result.Errors);
+
+        return Ok(new { message = "Đăng ký thành công với vai trò Khách hàng." });
+    }
+
+    [HttpPost("login")]
+    public async Task<IActionResult> Login([FromBody] Login model)
+    {
+        if (!ModelState.IsValid) return BadRequest(ModelState);
+
+        var (token, roles, error) = await _accountRepo.LoginAsync(model);
+        if (token == null) return Unauthorized(error);
+
+        return Ok(new
+        {
+            token = token,
+            expiration = DateTime.UtcNow.AddMinutes(Convert.ToDouble(_configuration["Jwt:ExpireMinutes"])),
+            email = model.Email,
+            roles = roles
+        });
+    }
+}

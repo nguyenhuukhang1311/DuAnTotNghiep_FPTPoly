@@ -4,6 +4,7 @@ using MenShop_Assignment.Datas;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MenShop_Assignment.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250505084445_Sencond")]
+    partial class Sencond
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -190,23 +193,11 @@ namespace MenShop_Assignment.Migrations
                     b.Property<decimal?>("InputPrice")
                         .HasColumnType("decimal(18,2)");
 
-
-                    b.Property<decimal?>("OfflinePrice")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal?>("OnlinePrice")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("ProductDetailId")
-                        .HasColumnType("int");
-
-
                     b.Property<int>("ProductDetailId")
                         .HasColumnType("int");
 
                     b.Property<decimal?>("SellPrice")
                         .HasColumnType("decimal(18,2)");
-
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");

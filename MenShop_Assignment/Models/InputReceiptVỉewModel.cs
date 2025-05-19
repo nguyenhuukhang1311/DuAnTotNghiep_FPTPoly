@@ -12,9 +12,7 @@ namespace MenShop_Assignment.Models
 		public string? Status { get; set; }
 		public decimal? Total { get; set; }
 		public string? ManagerName { get; set; }
-		public User? Manager { get; set; }
-		public int StorageId { get; set; }
-		public Storage? Storage { get; set; }
-		public ICollection<InputReceiptDetailViewModel>? InputReceiptDetails { get; set; }
+		public string? StorageName { get; set; }
+		public ICollection<ReceiptDetailViewModel>? InputReceiptDetails { get; set; }
 	}
 }

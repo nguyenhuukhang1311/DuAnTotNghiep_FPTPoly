@@ -1,9 +1,9 @@
 ﻿using MenShop_Assignment.Datas;
 
-namespace MenShop_Assignment.Models
+namespace MenShop_Assignment.Models.OutputReceiptView
 {
-	public class InputReceiptDetailViewModel
-	{
+	public class ReceiptDetailViewModel
+    {
 		public string? Name { get; set; }
 		public string? Color { get; set; }
 		public string? Size { get; set; }

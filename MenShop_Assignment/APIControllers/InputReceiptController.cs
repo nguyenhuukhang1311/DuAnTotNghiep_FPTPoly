@@ -19,8 +19,8 @@ namespace MenShop_Assignment.APIControllers
 		{
 			return await _receiptRepository.GetInputReceipts();
 		}
-		[HttpGet()]
-		public async Task<InputReceiptViewModel> GetById(int Id)
+        [HttpGet("{id}")]
+        public async Task<InputReceiptViewModel> GetById(int Id)
 		{
 			return await _receiptRepository.GetById(Id);
 		}

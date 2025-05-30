@@ -50,5 +50,16 @@ namespace MenShop_Assignment.Repositories
             List<StorageDetailsViewModel> storageDetailsViewModels = storageDetails.Select(x => _storageDetailMapper.ToStorageDetailView(x)).ToList();
             return storageDetailsViewModels;
         }
+
+        public async Task<StorageDetail?> GetByProductIdAsync(int productDetailId)
+        {
+            return await _context.StorageDetails
+                .FirstOrDefaultAsync(s => s.ProductDetailId == productDetailId);
+        }
+
+        public async Task SaveChangesAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
     }
 }

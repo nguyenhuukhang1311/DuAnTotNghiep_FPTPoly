@@ -15,6 +15,7 @@ using MenShop_Assignment.Repositories;
 
 
 using Microsoft.OpenApi.Models;
+using MenShop_Assignment.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +32,11 @@ builder.Services.AddScoped<ColorMapper>();
 builder.Services.AddScoped<FabricRepository>();
 builder.Services.AddScoped<FabricMapper>();
 builder.Services.AddScoped<UserMapper>();
+builder.Services.AddScoped<IOrderCustomerRepository, OrderCustomerRepository>();
+builder.Services.AddScoped<IStorageRepository, StorageRepository>();
+builder.Services.AddScoped<IAutoOrderService, AutoOrderService>();
+builder.Services.AddScoped<IOrderCustomerRepository, OrderCustomerRepository>();
+builder.Services.AddScoped<OrderMapper>();
 
 // Add services to the container.
 builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
@@ -44,9 +50,11 @@ builder.Services.AddScoped<CategoryProductMapper>();
 builder.Services.AddScoped<ProductMapper>();
 
 
+// Swagger
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
+    options.CustomSchemaIds(type => type.FullName);
 });
 
 

@@ -52,8 +52,23 @@ if errorlevel 1 (
     )
 )
 
+REM Làm cho Git bỏ qua các thay đổi
 echo.
-echo ✓ Setup completed! Config files are now ignored by .gitignore
-echo   You can safely modify these files without them being tracked.
+echo Configuring Git to ignore local changes...
+git update-index --assume-unchanged appsettings.json 2>nul
+git update-index --assume-unchanged appsettings.Development.json 2>nul
+git update-index --assume-unchanged Properties\launchSettings.json 2>nul
+
+REM Kiểm tra nếu có thư mục Migrations
+if exist Migrations (
+    for /r Migrations %%f in (*) do (
+        git update-index --assume-unchanged "%%f" 2>nul
+    )
+)
+
+echo ✓ Git configured to ignore changes to config files
+echo.
+echo ✓ Setup completed! You can now safely modify config files.
+echo   Your changes will not appear in Git status.
 echo.
 pause

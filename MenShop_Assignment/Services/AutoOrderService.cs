@@ -16,7 +16,7 @@ namespace MenShop_Assignment.Services
             _storageRepo = storageRepo;
         }
 
-        public async Task<ApprovalResultDto> ApproveOrderAsync(int orderId)
+        public async Task<ApprovalResultDto> ApproveOrderAsync(string orderId)
         {
             var order = await _orderRepo.GetOrderWithDetailsAsync(orderId);
 

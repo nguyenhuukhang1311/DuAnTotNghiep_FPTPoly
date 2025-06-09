@@ -19,6 +19,7 @@ using MenShop_Assignment.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace MenShop_Assignment.APIControllers
 {
@@ -50,7 +51,7 @@ namespace MenShop_Assignment.APIControllers
         }
 
         [HttpPut("auto-approve/{orderId}")]
-        public async Task<IActionResult> AutoApprove(int orderId)
+        public async Task<IActionResult> AutoApprove(string orderId)
         {
             var result = await _orderService.ApproveOrderAsync(orderId);
 
@@ -86,11 +87,11 @@ namespace MenShop_Assignment.APIControllers
         }
 
         [HttpGet("getorderdetail/{orderId}")]
-        public async Task<ActionResult<ApiResponse<List<OrderDetailCustomerModel>>>> GetOrderById(int orderId)
+        public async Task<ActionResult<ApiResponse<List<OrderDetailCustomerModel>>>> GetOrderById(string orderId)
         {
             try
             {
-                if (orderId <= 0)
+                if (orderId.IsNullOrEmpty())
                     return BadRequest(new ApiResponse<List<OrderDetailCustomerModel>>(null, "Mã đơn hàng không hợp lệ"));
 
                 var order = await _orderCustomerRepository.GetOrderWithDetailsAsync(orderId);
@@ -107,7 +108,7 @@ namespace MenShop_Assignment.APIControllers
         }
 
 
-        [HttpPost("search")]
+        [HttpGet("search")]
         public async Task<ActionResult<ApiResponse<List<OrderCustomerModel>>>> SearchOrders([FromBody] OrderSearchCustomerModel searchDto)
         {
             try
@@ -132,7 +133,7 @@ namespace MenShop_Assignment.APIControllers
         {
             try
             {
-                if (cancelDto == null || cancelDto.OrderId <= 0)
+                if (cancelDto == null || cancelDto.OrderId.IsNullOrEmpty())
                     return BadRequest(new ApiResponse<bool>(false, "Mã đơn hàng không hợp lệ"));
 
                 var canCancel = await _orderCustomerRepository.CanCancelOrderAsync(cancelDto.OrderId);

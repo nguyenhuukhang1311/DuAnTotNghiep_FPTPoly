@@ -22,7 +22,7 @@ namespace MenShop_Assignment.Repositories
                 .ToListAsync();
         }
 
-        public async Task<Order?> GetOrderWithDetailsAsync(int orderId)
+        public async Task<Order?> GetOrderWithDetailsAsync(string orderId)
         {
             return await _context.Orders
                 .Include(o => o.Details)

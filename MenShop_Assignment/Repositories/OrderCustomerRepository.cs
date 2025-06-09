@@ -25,7 +25,7 @@ namespace MenShop_Assignment.Repositories
                 .ToListAsync();
         }
 
-        public async Task<Order?> GetOrderWithDetailsAsync(int orderId)
+        public async Task<Order?> GetOrderWithDetailsAsync(string orderId)
         {
             return await _context.Orders
                 .Include(o => o.Details)
@@ -91,7 +91,7 @@ namespace MenShop_Assignment.Repositories
             
         }
 
-        public async Task<Order?> GetOrderByIdAsync(int orderId)
+        public async Task<Order?> GetOrderByIdAsync(string orderId)
         {
             return await _context.Orders
                 .Include(o => o.Customer)
@@ -147,7 +147,7 @@ namespace MenShop_Assignment.Repositories
             return await query.OrderByDescending(o => o.CreatedDate).ToListAsync();
         }
 
-        public async Task<bool> CanCancelOrderAsync(int orderId)
+        public async Task<bool> CanCancelOrderAsync(string orderId)
         {
             var order = await _context.Orders.FindAsync(orderId);
             if (order == null) return false;
@@ -155,7 +155,7 @@ namespace MenShop_Assignment.Repositories
             return order.Status == OrderStatus.Pending || order.Status == OrderStatus.Confirmed;
         }
 
-        public async Task<bool> CancelOrderAsync(int orderId)
+        public async Task<bool> CancelOrderAsync(string orderId)
         {
             using var transaction = await _context.Database.BeginTransactionAsync();
 

@@ -5,7 +5,7 @@
         public int Total { get; set; }
         public int Approved { get; set; }
         public int Failed { get; set; }
-        public List<int> ApprovedIds { get; set; } = new();
+        public List<string> ApprovedIds { get; set; } = new();
         public List<FailedOrderDto> FailedOrders { get; set; } = new();
     }
 }

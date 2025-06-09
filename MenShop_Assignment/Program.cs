@@ -15,6 +15,10 @@ using MenShop_Assignment.Repositories;
 
 
 using Microsoft.OpenApi.Models;
+using MenShop_Assignment.Repositories.AccountRepository;
+using MenShop_Assignment.Repositories.AdminRepositories;
+using MenShop_Assignment.Repositories.Carts;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,21 +36,52 @@ builder.Services.AddScoped<FabricRepository>();
 builder.Services.AddScoped<FabricMapper>();
 builder.Services.AddScoped<UserMapper>();
 
+
 // Add services to the container.
 builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddControllers();
+builder.Services.AddScoped<ICartRepository, CartRepository>();
 
 builder.Services.AddScoped<ICategoryProductRepository, CategoryProductRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 //mapper
 builder.Services.AddScoped<CategoryProductMapper>();
 builder.Services.AddScoped<ProductMapper>();
+builder.Services.AddScoped<IAdminRepository, AdminRepository>();
 
 
-builder.Services.AddSwaggerGen(options =>
+builder.Services.AddSwaggerGen(c =>
 {
-    options.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "MenShop API", Version = "v1" });
+
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        In = ParameterLocation.Header,
+        Description = "Nhập token vào đây theo dạng: Bearer {token}"
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
+
+    // Tránh lỗi trùng tên class
+    c.CustomSchemaIds(type => type.FullName);
 });
 
 
@@ -61,16 +96,20 @@ builder.Services.AddCors(options =>
     });
 });
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<ProductMapper>();
+builder.Services.AddScoped<StorageDetailMapper>();
+builder.Services.AddScoped<IStorageRepository, StorageRepository>();
+builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+builder.Services.AddControllers()
+    .AddJsonOptions(x =>
+    {
+        x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+        x.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
+    });
 
-    builder.Services.AddScoped<ProductMapper>();
 
-
-    builder.Services.AddScoped<StorageDetailMapper>();
-
-    builder.Services.AddScoped<IStorageRepository, StorageRepository>();
-
-    // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-    builder.Services.AddOpenApi();
+// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+builder.Services.AddOpenApi();
 
 
     var app = builder.Build();

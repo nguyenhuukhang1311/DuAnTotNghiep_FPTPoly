@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MenShop_Assignment.Datas;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace MenShop_Assignment.Datas
 {
@@ -34,6 +35,16 @@ namespace MenShop_Assignment.Datas
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<IdentityRole>().HasData(
+            new IdentityRole { Id = "1", Name = "Admin", NormalizedName = "ADMIN" },
+            new IdentityRole { Id = "2", Name = "Quản lý chi nhánh", NormalizedName = "QUẢN LÝ CHI NHÁNH" },
+            new IdentityRole { Id = "3", Name = "Nhân viên chi nhánh", NormalizedName = "NHÂN VIÊN CHI NHÁNH" },
+            new IdentityRole { Id = "4", Name = "Khách hàng", NormalizedName = "KHÁCH HÀNG" },
+            new IdentityRole { Id = "5", Name = "Xưởng sản xuất", NormalizedName = "XƯỞNG SẢN XUẤT" },
+            new IdentityRole { Id = "6", Name = "Quản lý doanh thu", NormalizedName = "QUẢN LÝ DOANH THU" },
+            new IdentityRole { Id = "7", Name = "Shipper", NormalizedName = "SHIPPER" },
+            new IdentityRole { Id = "8", Name = "Quản lý kho", NormalizedName = "QUẢN LÝ KHO" }
+            );
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Branch>().HasKey(b => b.BranchId);
             modelBuilder.Entity<BranchDetail>().HasKey(b => new {b.BranchId,b.ProductDetailId});

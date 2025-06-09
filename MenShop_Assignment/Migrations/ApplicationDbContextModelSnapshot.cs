@@ -15,7 +15,7 @@ namespace MenShop_Assignment.Migrations
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
-#pragma warning disable 612, 618
+
             modelBuilder
                 .HasAnnotation("ProductVersion", "9.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
@@ -1328,7 +1328,6 @@ namespace MenShop_Assignment.Migrations
 
                     b.Navigation("Storages");
                 });
-#pragma warning restore 612, 618
         }
     }
 }

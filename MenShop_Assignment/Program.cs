@@ -13,6 +13,7 @@ using MenShop_Assignment.Repositories;
 using MenShop_Assignment.Models.Momo;
 
 using Microsoft.OpenApi.Models;
+<<<<<<< HEAD
 using MenShop_Assignment.Repositories.OrderRepositories;
 using MenShop_Assignment.Mapper.MapperOrder;
 using MenShop_Assignment.Repositories.AccountRepository;
@@ -22,6 +23,9 @@ using MenShop_Assignment.Services.PaymentServices;
 using Microsoft.Extensions.DependencyInjection;
 using MenShop_Assignment.Repositories.CustomerAddress;
 using MenShop_Assignment.Services.VNPay;
+=======
+using MenShop_Assignment.Services;
+>>>>>>> 8344139ed88cf4d7d0ba0bf5505f1f9a0d9bd6d9
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,7 +43,21 @@ builder.Services.AddScoped<ColorMapper>();
 builder.Services.AddScoped<FabricRepository>();
 builder.Services.AddScoped<FabricMapper>();
 builder.Services.AddScoped<UserMapper>();
+<<<<<<< HEAD
 builder.Services.AddScoped<MapperCustomerAddress>();
+=======
+builder.Services.AddScoped<IOrderCustomerRepository, OrderCustomerRepository>();
+builder.Services.AddScoped<IStorageRepository, StorageRepository>();
+builder.Services.AddScoped<IAutoOrderService, AutoOrderService>();
+builder.Services.AddScoped<IOrderCustomerRepository, OrderCustomerRepository>();
+builder.Services.AddScoped<OrderMapper>();
+
+// Add services to the container.
+builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddControllers();
+
+>>>>>>> 8344139ed88cf4d7d0ba0bf5505f1f9a0d9bd6d9
 builder.Services.AddScoped<ICategoryProductRepository, CategoryProductRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<CategoryProductMapper>();

@@ -32,7 +32,7 @@ namespace MenShop_Assignment.Controllers
         }
 
         [HttpPost("create-staff")]
-        [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> CreateUserByAdmin([FromBody] StaffRegister model)
         {
             if (!ModelState.IsValid)

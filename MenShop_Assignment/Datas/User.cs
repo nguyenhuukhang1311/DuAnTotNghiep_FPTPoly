@@ -5,6 +5,7 @@ namespace MenShop_Assignment.Datas
     public class User : IdentityUser
     {
         public bool? Gender { get; set; }
+        public string FullName { get; set; }
         public DateTime? BirthDate { get; set; }
         public DateTime? CreatedDate { get; set; }
         public DateTime? DeletedDate { get; set; }

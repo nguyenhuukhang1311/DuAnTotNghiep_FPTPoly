@@ -4,7 +4,7 @@ namespace MenShop_Assignment.Datas
 {
     public class Order
     {
-        public int OrderId { get; set; }
+        public string OrderId { get; set; }
         public string? CustomerId { get; set; }
         public string? EmployeeId { get; set; }
         public string? ShipperId { get; set; }

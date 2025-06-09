@@ -190,23 +190,11 @@ namespace MenShop_Assignment.Migrations
                     b.Property<decimal?>("InputPrice")
                         .HasColumnType("decimal(18,2)");
 
-
-                    b.Property<decimal?>("OfflinePrice")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal?>("OnlinePrice")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("ProductDetailId")
-                        .HasColumnType("int");
-
-
                     b.Property<int>("ProductDetailId")
                         .HasColumnType("int");
 
                     b.Property<decimal?>("SellPrice")
                         .HasColumnType("decimal(18,2)");
-
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -303,11 +291,8 @@ namespace MenShop_Assignment.Migrations
 
             modelBuilder.Entity("MenShop_Assignment.Datas.Order", b =>
                 {
-                    b.Property<int>("OrderId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"));
+                    b.Property<string>("OrderId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime?>("CompletedDate")
                         .HasColumnType("datetime2");
@@ -349,8 +334,8 @@ namespace MenShop_Assignment.Migrations
 
             modelBuilder.Entity("MenShop_Assignment.Datas.OrderDetail", b =>
                 {
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
+                    b.Property<string>("OrderId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("ProductDetailId")
                         .HasColumnType("int");
@@ -434,11 +419,8 @@ namespace MenShop_Assignment.Migrations
 
             modelBuilder.Entity("MenShop_Assignment.Datas.Payment", b =>
                 {
-                    b.Property<int>("PaymentId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentId"));
+                    b.Property<string>("PaymentId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(18,2)");
@@ -449,8 +431,9 @@ namespace MenShop_Assignment.Migrations
                     b.Property<string>("Notes")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
+                    b.Property<string>("OrderId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("PaymentDate")
                         .HasColumnType("datetime2");
@@ -493,8 +476,9 @@ namespace MenShop_Assignment.Migrations
                     b.Property<decimal>("DiscountPercentage")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("PaymentId")
-                        .HasColumnType("int");
+                    b.Property<string>("PaymentId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");
@@ -660,6 +644,10 @@ namespace MenShop_Assignment.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("EmployeeAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool?>("Gender")

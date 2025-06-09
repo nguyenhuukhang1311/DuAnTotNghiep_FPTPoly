@@ -3,8 +3,8 @@ namespace MenShop_Assignment.Datas
 {
 	public class Payment
 	{
-		public int PaymentId { get; set; }
-		public int OrderId { get; set; }
+		public string PaymentId { get; set; }
+		public string OrderId { get; set; }
 		public Order? Order { get; set; }
 		public decimal Amount { get; set; }
 		public DateTime PaymentDate { get; set; }

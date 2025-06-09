@@ -30,6 +30,7 @@ namespace MenShop_Assignment.Repositories.AccountRepository
         {
             var user = new User
             {
+                FullName = model.FullName,
                 UserName = model.Email,
                 Email = model.Email,
                 Gender = model.Gender,
@@ -40,7 +41,7 @@ namespace MenShop_Assignment.Repositories.AccountRepository
             var result = await _userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded) return result;
 
-            var roleResult = await _userManager.AddToRoleAsync(user, "Khách hàng");
+            var roleResult = await _userManager.AddToRoleAsync(user, "Customer");
             return roleResult;
         }
 

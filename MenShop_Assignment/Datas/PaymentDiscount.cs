@@ -5,7 +5,7 @@ namespace MenShop_Assignment.Datas
 	public class PaymentDiscount
 	{
 		public int DiscountId { get; set; }
-		public int PaymentId { get; set; }
+		public string PaymentId { get; set; }
 		public Payment Payment { get; set; }
 		public string? CouponCode { get; set; }
 		public decimal DiscountAmount { get; set; }

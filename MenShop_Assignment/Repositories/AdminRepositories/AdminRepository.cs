@@ -30,6 +30,7 @@ namespace MenShop_Assignment.Repositories
 
             var user = new User
             {
+                FullName = model.FullName,
                 UserName = model.Email,
                 Email = model.Email,
                 Gender = model.Gender,

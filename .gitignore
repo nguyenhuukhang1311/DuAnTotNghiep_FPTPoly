@@ -404,7 +404,6 @@ MenShop_Assignment/Migrations/20250505022623_login.cs
 MenShop_Assignment/Migrations/ApplicationDbContextModelSnapshot.cs
 MenShop_Assignment/Migrations/20250505022623_login.Designer.cs
 /BranchProductView/BranchProductView.csproj
-
 # Entity Framework Migrations
 Migrations/
 **/Migrations/

@@ -5,6 +5,8 @@ namespace MenShop_Assignment.Models.AdminModel
     public class StaffRegister
     {
         [Required]
+        public string FullName { get; set; } = null;
+        [Required]
         [EmailAddress]
         public string Email { get; set; } = null!;
 

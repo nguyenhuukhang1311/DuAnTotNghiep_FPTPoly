@@ -398,3 +398,22 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+/Test/Test.csproj
+MenShop_Assignment/Migrations/20250505022623_login.cs
+MenShop_Assignment/Migrations/ApplicationDbContextModelSnapshot.cs
+MenShop_Assignment/Migrations/20250505022623_login.Designer.cs
+/BranchProductView/BranchProductView.csproj
+# Entity Framework Migrations
+Migrations/
+**/Migrations/
+
+# Launch settings (chứa thông tin debug local)
+Properties/launchSettings.json
+**/Properties/launchSettings.json
+
+# App settings (có thể chứa thông tin nhạy cảm)
+appsettings.json
+appsettings.*.json
+**/appsettings.json
+**/appsettings.*.json

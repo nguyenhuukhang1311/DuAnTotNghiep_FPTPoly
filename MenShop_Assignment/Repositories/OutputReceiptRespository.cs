@@ -9,8 +9,8 @@ namespace MenShop_Assignment.Repositories
     public class OutputReceiptRespository
     {
         private readonly ApplicationDbContext _context;
-        private readonly InputReceiptMapper _mapper;
-        public OutputReceiptRespository(ApplicationDbContext context, InputReceiptMapper mapper)
+        private readonly ReceiptMapper _mapper;
+        public OutputReceiptRespository(ApplicationDbContext context, ReceiptMapper mapper)
         {
             _context = context;
             _mapper = mapper;

@@ -15,7 +15,11 @@ namespace MenShop_Assignment.Migrations
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
+<<<<<<< HEAD
 #pragma warning disable 612, 618
+=======
+
+>>>>>>> 4c7a32a113c1670ac083587cc24696b9b1623ec9
             modelBuilder
                 .HasAnnotation("ProductVersion", "9.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
@@ -179,6 +183,7 @@ namespace MenShop_Assignment.Migrations
                     b.ToTable("Fabrics");
                 });
 
+<<<<<<< HEAD
             modelBuilder.Entity("MenShop_Assignment.Datas.GHTKOrder", b =>
                 {
                     b.Property<string>("Id")
@@ -274,6 +279,8 @@ namespace MenShop_Assignment.Migrations
                     b.ToTable("GHTKProducts");
                 });
 
+=======
+>>>>>>> 4c7a32a113c1670ac083587cc24696b9b1623ec9
             modelBuilder.Entity("MenShop_Assignment.Datas.HistoryPrice", b =>
                 {
                     b.Property<int>("Id")
@@ -386,6 +393,7 @@ namespace MenShop_Assignment.Migrations
 
             modelBuilder.Entity("MenShop_Assignment.Datas.Order", b =>
                 {
+<<<<<<< HEAD
                     b.Property<int>("OrderId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
@@ -394,6 +402,10 @@ namespace MenShop_Assignment.Migrations
 
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
+=======
+                    b.Property<string>("OrderId")
+                        .HasColumnType("nvarchar(450)");
+>>>>>>> 4c7a32a113c1670ac083587cc24696b9b1623ec9
 
                     b.Property<DateTime?>("CompletedDate")
                         .HasColumnType("datetime2");
@@ -435,8 +447,13 @@ namespace MenShop_Assignment.Migrations
 
             modelBuilder.Entity("MenShop_Assignment.Datas.OrderDetail", b =>
                 {
+<<<<<<< HEAD
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
+=======
+                    b.Property<string>("OrderId")
+                        .HasColumnType("nvarchar(450)");
+>>>>>>> 4c7a32a113c1670ac083587cc24696b9b1623ec9
 
                     b.Property<int>("ProductDetailId")
                         .HasColumnType("int");
@@ -520,11 +537,16 @@ namespace MenShop_Assignment.Migrations
 
             modelBuilder.Entity("MenShop_Assignment.Datas.Payment", b =>
                 {
+<<<<<<< HEAD
                     b.Property<int>("PaymentId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentId"));
+=======
+                    b.Property<string>("PaymentId")
+                        .HasColumnType("nvarchar(450)");
+>>>>>>> 4c7a32a113c1670ac083587cc24696b9b1623ec9
 
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(18,2)");
@@ -535,8 +557,14 @@ namespace MenShop_Assignment.Migrations
                     b.Property<string>("Notes")
                         .HasColumnType("nvarchar(max)");
 
+<<<<<<< HEAD
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
+=======
+                    b.Property<string>("OrderId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+>>>>>>> 4c7a32a113c1670ac083587cc24696b9b1623ec9
 
                     b.Property<DateTime>("PaymentDate")
                         .HasColumnType("datetime2");
@@ -579,8 +607,14 @@ namespace MenShop_Assignment.Migrations
                     b.Property<decimal>("DiscountPercentage")
                         .HasColumnType("decimal(18,2)");
 
+<<<<<<< HEAD
                     b.Property<int>("PaymentId")
                         .HasColumnType("int");
+=======
+                    b.Property<string>("PaymentId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+>>>>>>> 4c7a32a113c1670ac083587cc24696b9b1623ec9
 
                     b.Property<int>("Type")
                         .HasColumnType("int");
@@ -748,6 +782,13 @@ namespace MenShop_Assignment.Migrations
                     b.Property<string>("EmployeeAddress")
                         .HasColumnType("nvarchar(max)");
 
+<<<<<<< HEAD
+=======
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+>>>>>>> 4c7a32a113c1670ac083587cc24696b9b1623ec9
                     b.Property<bool?>("Gender")
                         .HasColumnType("bit");
 
@@ -1426,7 +1467,10 @@ namespace MenShop_Assignment.Migrations
 
                     b.Navigation("Storages");
                 });
+<<<<<<< HEAD
 #pragma warning restore 612, 618
+=======
+>>>>>>> 4c7a32a113c1670ac083587cc24696b9b1623ec9
         }
     }
 }

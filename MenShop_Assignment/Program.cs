@@ -20,14 +20,17 @@ builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<Appl
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
-
+//
 builder.Services.AddScoped<ProductMapper>();
-
-
+builder.Services.AddScoped<CustomerAddressMapper>();
 builder.Services.AddScoped<StorageDetailMapper>();
-
+builder.Services.AddScoped<OrdersMapper>();
+builder.Services.AddScoped<GHTKOrderMapper>();
+builder.Services.AddScoped<GHTKProductMapper>();
 builder.Services.AddScoped<IStorageRepository, StorageRepository>();
-
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IGHTKOrderRepository, GHTKOrderRepository>();
+//
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 

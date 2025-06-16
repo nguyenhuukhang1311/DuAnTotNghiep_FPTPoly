@@ -1,13 +1,14 @@
-﻿using MenShop_Assignment.Extensions;
+﻿using MenShop_Assignment.Datas;
+using MenShop_Assignment.Extensions;
 
-namespace MenShop_Assignment.Datas
+namespace MenShop_Assignment.Models
 {
-    public class Order
+    public class OrdersViewModel
     {
-        public string OrderId { get; set; }
-        public string? CustomerId { get; set; }
-        public string? EmployeeId { get; set; }
-        public string? ShipperId { get; set; }
+        public int OrderId { get; set; }
+        public string? CustomerName { get; set; }
+        public string? EmployeeName { get; set; }
+        public string? ShipperName { get; set; }
         public User? Shipper { get; set; }
         public User? Employee { get; set; }
         public User? Customer { get; set; }
@@ -16,10 +17,10 @@ namespace MenShop_Assignment.Datas
         public DateTime? PaidDate { get; set; }
         public OrderStatus? Status { get; set; }
         public bool? IsOnline { get; set; }
-        public decimal? Total {  get; set; }
+        public decimal? Total { get; set; }
         public string? Address { get; set; }
         public ICollection<OrderDetail>? Details { get; set; }
-		// Thêm quan hệ với Payment
-		public ICollection<Payment>? Payments { get; set; }
-	}
+        // Thêm quan hệ với Payment
+        public ICollection<Payment>? Payments { get; set; }
+    }
 }

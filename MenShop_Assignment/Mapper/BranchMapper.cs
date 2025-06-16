@@ -16,6 +16,7 @@ namespace MenShop_Assignment.Mapper
         {
             return new BranchProductViewModel
             {
+                ProductId = branchDetail.ProductDetail?.ProductId ?? null,
                 ProductName = branchDetail.ProductDetail?.Product?.ProductName ?? "",
                 Image = _context.ImagesProducts.Where(x=>x.ProductDetailId == branchDetail.ProductDetailId).FirstOrDefault().FullPath,
                 Description = branchDetail.ProductDetail?.Product?.Description ?? "",

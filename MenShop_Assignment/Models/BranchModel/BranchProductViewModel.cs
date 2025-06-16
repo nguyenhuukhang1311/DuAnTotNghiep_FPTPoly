@@ -5,6 +5,7 @@ namespace MenShop_Assignment.Models.BranchModel
 {
     public class BranchProductViewModel
     {
+        public int? ProductId { get; set; }
         public string? Image { get; set; }
         public string? ProductName { get; set; }
         public string? Description { get; set; }

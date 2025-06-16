@@ -32,6 +32,8 @@ namespace MenShop_Assignment.Datas
         public DbSet<Size> Sizes { get; set; }
         public DbSet<Storage> Storages { get; set; }
         public DbSet<StorageDetail> StorageDetails { get; set; }
+        public DbSet<GHTKOrder> GHTKOrders { get; set; }
+        public DbSet<GHTKProduct> GHTKProducts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -69,8 +71,19 @@ namespace MenShop_Assignment.Datas
             modelBuilder.Entity<StorageDetail>().HasKey(s => new { s.StorageId, s.ProductDetailId });
 			modelBuilder.Entity<Payment>().HasKey(p => p.PaymentId);
 			modelBuilder.Entity<PaymentDiscount>().HasKey(pd => pd.DiscountId);
-			// User - Branch (Manager)
-			modelBuilder.Entity<Branch>()
+            modelBuilder.Entity<GHTKOrder>().HasKey(go => go.Id);
+            modelBuilder.Entity<GHTKProduct>().HasKey(gp=>gp.ProductId);
+
+            // CategoryProduct - Product
+            modelBuilder.Entity<Product>()
+                .HasOne(p => p.Category)
+                .WithMany(c => c.Products)
+                .HasForeignKey(p => p.CategoryId)
+                .IsRequired(false);
+
+
+            // User - Branch (Manager)
+            modelBuilder.Entity<Branch>()
                 .HasOne(b => b.Manager)
                 .WithOne(u => u.ManagedBranch)
                 .HasForeignKey<Branch>(b => b.ManagerId);

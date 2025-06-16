@@ -1,13 +1,26 @@
-﻿
-using MenShop_Assignment.Datas;
+﻿using MenShop_Assignment.Datas;
+using MenShop_Assignment.Mapper;
 using MenShop_Assignment.Mapper.MapperCategory;
+using MenShop_Assignment.Mapper.MapperOrder;
 using MenShop_Assignment.Mapper.MapperProduct;
+using MenShop_Assignment.Models.Momo;
+using MenShop_Assignment.Repositories;
+using MenShop_Assignment.Repositories.AccountRepository;
+using MenShop_Assignment.Repositories.AdminRepositories;
+using MenShop_Assignment.Repositories.Carts;
 using MenShop_Assignment.Repositories.Category;
+using MenShop_Assignment.Repositories.CustomerAddress;
+using MenShop_Assignment.Repositories.OrderRepositories;
 using MenShop_Assignment.Repositories.Product;
+using MenShop_Assignment.Services;
+using MenShop_Assignment.Services.Momo;
+using MenShop_Assignment.Services.PaymentServices;
+using MenShop_Assignment.Services.VNPay;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Options;
+<<<<<<< HEAD
 using MenShop_Assignment.Mapper;
 using MenShop_Assignment.Repositories;
 using MenShop_Assignment.Models.Momo;
@@ -27,15 +40,20 @@ using MenShop_Assignment.Models.Account;
 using MenShop_Assignment.Repositories.BranchesRepositories;
 
 
+=======
+using Microsoft.OpenApi.Models;
+using OrderMapper = MenShop_Assignment.Mapper.MapperOrder.OrderMapper;
+>>>>>>> 88675dc243c071395de510368003d5291069df9e
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Cấu hình DI
+<<<<<<< HEAD
+//Khu vưc của bảo ---------------------------------------------------------------
 builder.Services.AddScoped<OutputReceiptViewRepository>();
 builder.Services.AddScoped<OutputReceiptMapper>();
 builder.Services.AddScoped<BranchProductRepository>();
 builder.Services.AddScoped<BranchMapper>();
 builder.Services.AddScoped<InputReceiptRepository>();
+<<<<<<< HEAD
 builder.Services.AddScoped<ReceiptMapper>();
 builder.Services.AddScoped<SizeRepository>();
 builder.Services.AddScoped<SizeMapper>();
@@ -47,10 +65,15 @@ builder.Services.AddScoped<UserMapper>();
 
 
 
+=======
+builder.Services.AddScoped<InputReceiptMapper>();
+//Khu vưc của bảo ---------------------------------------------------------------
+>>>>>>> 88675dc243c071395de510368003d5291069df9e
 // Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 builder.Services.AddControllers();
+<<<<<<< HEAD
 builder.Services.AddScoped<ICartRepository, CartRepository>();
 builder.Services.AddScoped<MapperCustomerAddress>();
 builder.Services.AddScoped<IOrderCustomerRepository, OrderCustomerRepository>();
@@ -64,6 +87,92 @@ builder.Services.AddScoped<CategoryProductMapper>();
 builder.Services.AddScoped<ProductMapper>();
 builder.Services.AddScoped<OutputReceiptRepository>();
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
+=======
+builder.Services.AddSwaggerGen();
+//
+builder.Services.AddScoped<ProductMapper>();
+builder.Services.AddScoped<CustomerAddressMapper>();
+builder.Services.AddScoped<StorageDetailMapper>();
+builder.Services.AddScoped<OrdersMapper>();
+builder.Services.AddScoped<GHTKOrderMapper>();
+builder.Services.AddScoped<GHTKProductMapper>();
+builder.Services.AddScoped<IStorageRepository, StorageRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IGHTKOrderRepository, GHTKOrderRepository>();
+//
+// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+builder.Services.AddOpenApi();
+=======
+
+// --------------------------
+// Configure Services (DI)
+// --------------------------
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddIdentity<User, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
+
+// Repositories & Mappers
+builder.Services.AddScoped<ICategoryProductRepository, CategoryProductRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IOrderCustomerRepository, OrderCustomerRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+builder.Services.AddScoped<IAdminRepository, AdminRepository>();
+builder.Services.AddScoped<ICartRepository, CartRepository>();
+builder.Services.AddScoped<IStorageRepository, StorageRepository>();
+builder.Services.AddScoped<ICustomerAddressRepository, CustomerAddressRepository>();
+
+builder.Services.AddScoped<ProductMapper>();
+builder.Services.AddScoped<CategoryProductMapper>();
+builder.Services.AddScoped<OrderMapper>();
+builder.Services.AddScoped<UserMapper>();
+builder.Services.AddScoped<StorageDetailMapper>();
+builder.Services.AddScoped<ColorMapper>();
+builder.Services.AddScoped<ColorRepository>();
+builder.Services.AddScoped<SizeMapper>();
+builder.Services.AddScoped<SizeRepository>();
+builder.Services.AddScoped<FabricMapper>();
+builder.Services.AddScoped<FabricRepository>();
+builder.Services.AddScoped<ReceiptMapper>();
+builder.Services.AddScoped<InputReceiptRepository>();
+builder.Services.AddScoped<BranchMapper>();
+builder.Services.AddScoped<BranchProductRepository>();
+builder.Services.AddScoped<OutputReceiptMapper>();
+builder.Services.AddScoped<OutputReceiptViewRepository>();
+builder.Services.AddScoped<MapperCustomerAddress>();
+
+// Services
+builder.Services.AddScoped<IAutoOrderService, AutoOrderService>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddScoped<IVNPayService, VNPayService>();
+builder.Services.AddScoped<IMomoServices, MomoServices>();
+
+// Configure Momo API
+builder.Services.Configure<MomoOptionModel>(
+    builder.Configuration.GetSection("MomoAPI"));
+>>>>>>> 4c7a32a113c1670ac083587cc24696b9b1623ec9
+
+builder.Services.AddSingleton(sp =>
+    sp.GetRequiredService<IOptions<MomoOptionModel>>().Value);
+
+// --------------------------
+// Controllers & JSON Options
+// --------------------------
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+        options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
+    });
+
+// --------------------------
+// Swagger
+// --------------------------
+>>>>>>> 88675dc243c071395de510368003d5291069df9e
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "MenShop API", Version = "v1" });
@@ -93,10 +202,10 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 
-    // Tránh lỗi trùng tên class
     c.CustomSchemaIds(type => type.FullName);
 });
 
+<<<<<<< HEAD
     builder.Services.AddScoped<StorageDetailMapper>();
     builder.Services.AddScoped<IStorageRepository, StorageRepository>();
     builder.Services.AddScoped<IOrderRepository, OrderRepository>();
@@ -156,6 +265,28 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     try
+=======
+// --------------------------
+// CORS
+// --------------------------
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+    });
+});
+
+// --------------------------
+// App Middleware Pipeline
+// --------------------------
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(options =>
+>>>>>>> 88675dc243c071395de510368003d5291069df9e
     {
         Console.WriteLine("Seeding admin...");
         await DbInitializer.SeedAdminAsync(services);
@@ -169,6 +300,7 @@ using (var scope = app.Services.CreateScope())
 }
 
 
+<<<<<<< HEAD
 
 // Cấu hình Swagger middleware
 if (app.Environment.IsDevelopment())
@@ -201,4 +333,13 @@ if (app.Environment.IsDevelopment())
     app.MapControllers();
     app.Run();
 
+=======
+app.UseRouting();
+app.UseCors("AllowAll");
+app.UseAuthentication();
+app.UseAuthorization();
+app.UseHttpsRedirection();
+app.MapControllers();
+>>>>>>> 88675dc243c071395de510368003d5291069df9e
 
+app.Run();

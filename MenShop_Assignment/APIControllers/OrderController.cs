@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+﻿using MenShop_Assignment.Datas;
+using MenShop_Assignment.Extensions;
+using MenShop_Assignment.Models;
+using MenShop_Assignment.Repositories;
+using Microsoft.AspNetCore.Mvc;
+=======
 
 ﻿using MenShop_Assignment.Models.OrderModels.CreateOrder;
 using MenShop_Assignment.Models.OrderModels.OrderReponse;
@@ -20,6 +27,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+>>>>>>> 4c7a32a113c1670ac083587cc24696b9b1623ec9
 
 namespace MenShop_Assignment.APIControllers
 {
@@ -27,6 +35,54 @@ namespace MenShop_Assignment.APIControllers
     [ApiController]
     public class OrderController : ControllerBase
     {
+<<<<<<< HEAD
+        private readonly IOrderRepository _orderRepository;
+        public OrderController(IOrderRepository shipperRepository)
+        {
+            _orderRepository = shipperRepository;
+        }
+
+        [HttpGet("getallorders")]
+        public async Task<IActionResult> GetAllOrders()
+        {
+            var result = await _orderRepository.GetAllOrdersAsync();
+            return Ok(result);
+        }
+        [HttpGet("getallonlineorders")]
+        public async Task<IActionResult> GetAllOnlineOrders()
+        {
+            var onlineOrders = await _orderRepository.GetAllOnlineOrdersAsync();
+            return Ok(onlineOrders);
+        }
+        [HttpPut("UpdateOrderShipperStatus")]
+        public async Task<IActionResult> UpdateOrderShipperStatus(int orderId, string shipperId)
+        {
+            await _orderRepository.ShipperAcceptOrderByOrderId(orderId,shipperId);
+            return NoContent();
+        }
+        [HttpPut("CompletedOrder")]
+        public async Task<IActionResult> CompleteOrderStatus(int orderId)
+        {
+            await _orderRepository.CompletedOrderStatus(orderId);
+            return NoContent();
+        }
+        [HttpGet("getorders")]
+        public async Task<IActionResult> GetOrdersByShipperId(string shipperId)
+        {
+            var result = await _orderRepository.GetOrdersByShipperId(shipperId);
+            return Ok(result);
+        }
+        [HttpGet("getordersbyaddress")]
+        public async Task<IActionResult> GetOrdersByShipperAddress()
+        {
+            return NoContent();
+        }
+        [HttpGet("getordersbydistrict")]
+        public async Task<ActionResult<List<OrdersViewModel>>> GetOrdersByDistrict(string district)
+        {
+            var orders = await _orderRepository.GetOrdersByDistrict(district);
+            return Ok(orders);
+=======
         private readonly IAutoOrderService _orderService;
         private readonly ILogger<OrderController> _logger;
         private readonly OrderMapper _orderMapper;
@@ -173,6 +229,7 @@ namespace MenShop_Assignment.APIControllers
 
                 return StatusCode(500, $"Có lỗi khi tạo hóa đơn: {ex.Message}");
             }
+>>>>>>> 4c7a32a113c1670ac083587cc24696b9b1623ec9
         }
     }
 }

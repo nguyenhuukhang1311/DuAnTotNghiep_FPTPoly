@@ -9,5 +9,7 @@ namespace MenShop_Assignment.Services.PaymentServices
     {
         Task<PaymentResponseDto> AddPaymentToOrderAsync(string orderId, CreatePaymentDto dto);
         //Task<(OrderResponseDto Order, MomoCreatePaymentResponseModel Payment)> CreateOrderAndPayAsync(CreateOrderDto dto);
+        Task<PaymentResponseDto> AddCodPaymentAsync(string orderId);
+
     }
 }

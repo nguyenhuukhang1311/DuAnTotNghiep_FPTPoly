@@ -43,10 +43,8 @@ namespace MenShop_Assignment.Repositories
         public async Task<BranchDto?> CreateBranchAsync(BranchCreateDto dto)
         {
             var inputAddress = dto.Address?.Trim();
-
-            if (string.IsNullOrWhiteSpace(inputAddress) || !VietnamProvinces.Provinces.Contains(inputAddress))
+            if (!AddressValidator.IsValidVietnamAddress(inputAddress))
                 return null;
-
             var branch = new Branch { Address = inputAddress };
             _context.Branches.Add(branch);
             await _context.SaveChangesAsync();
@@ -65,7 +63,7 @@ namespace MenShop_Assignment.Repositories
             if (branch == null) return false;
 
             var inputAddress = dto.Address?.Trim();
-            if (string.IsNullOrWhiteSpace(inputAddress) || !VietnamProvinces.Provinces.Contains(inputAddress))
+            if (!AddressValidator.IsValidVietnamAddress(inputAddress))
                 return false;
 
             branch.Address = inputAddress;

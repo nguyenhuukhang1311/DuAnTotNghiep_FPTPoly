@@ -40,7 +40,7 @@ namespace MenShop_Assignment.Services.PaymentServices
                 dto.TransactionCode = null;
                 dto.Notes = "Thanh toán bằng tiền mặt tại quầy";
             }
-
+       
 
             var payment = new Payment
             {
@@ -77,12 +77,25 @@ namespace MenShop_Assignment.Services.PaymentServices
                     order.Status = OrderStatus.Completed;
                     order.CompletedDate = DateTime.UtcNow;
                 }
-
             }
-            if(order.IsOnline == true)
+            if (order.IsOnline == true)
             {
+                var totalPaid = order.Payments
+                    .Where(p => p.Status == PaymentStatus.Completed)
+                    .Sum(p => p.Amount);
 
+                if (totalPaid > order.Total)
+                {
+                    throw new Exception("Tổng tiền thanh toán vượt quá số tiền đơn hàng.");
+                }
+
+                if (totalPaid == order.Total && payment.Status == PaymentStatus.Completed)
+                {
+                    order.Status = OrderStatus.Paid;
+                    order.PaidDate = DateTime.UtcNow;
+                }
             }
+
 
             await _context.SaveChangesAsync();
 
@@ -91,6 +104,38 @@ namespace MenShop_Assignment.Services.PaymentServices
 
             return _mapper.ToPaymentDto(payment);
         }
+
+        public async Task<PaymentResponseDto> AddCodPaymentAsync(string orderId)
+        {
+            var order = await _context.Orders
+                .Include(o => o.Payments)
+                .FirstOrDefaultAsync(o => o.OrderId == orderId);
+
+            if (order == null)
+                throw new Exception("Không tìm thấy đơn hàng.");
+
+            if (!(order.IsOnline ?? false))
+                throw new Exception("COD chỉ áp dụng cho đơn hàng online.");
+            var payment = new Payment
+            {
+                PaymentId = "PM" + Guid.NewGuid().ToString("N").Substring(0, 12),
+                OrderId = orderId,
+                Amount = (decimal)(order.Total ?? 0),
+                Method = PaymentMethod.COD,
+                Status = PaymentStatus.Pending,
+                PaymentProvider = "COD",
+                Notes = "Thanh toán khi nhận hàng (COD)",
+                
+                PaymentDate = null
+            };
+
+            order.Payments.Add(payment);
+
+            await _context.SaveChangesAsync();
+
+            return _mapper.ToPaymentDto(payment);
+        }
+
 
 
 

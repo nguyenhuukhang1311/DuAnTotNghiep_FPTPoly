@@ -16,6 +16,8 @@ namespace MenShop_Assignment.Repositories.Carts
         Task AddToCartAsync(string customerId, int productDetailId, int quantity);
         Task UpdateQuantityAsync(string customerId, int productDetailId, int quantity);
         Task RemoveFromCartAsync(string customerId, int productDetailId);
+        Task RemoveCartItemsAsync(string customerId, List<int> productDetailIds);
+
     }
 
 }

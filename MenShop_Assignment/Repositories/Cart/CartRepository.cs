@@ -115,6 +115,30 @@ namespace MenShop_Assignment.Repositories.Carts
             cart.Details.Remove(item);
             await _context.SaveChangesAsync();
         }
+
+        public async Task RemoveCartItemsAsync(string customerId, List<int> productDetailIds)
+        {
+            var cart = await _context.Carts
+                .Include(c => c.Details)
+                .FirstOrDefaultAsync(c => c.CustomerId == customerId);
+
+            if (cart == null || cart.Details == null) return;
+
+            var itemsToRemove = cart.Details
+                .Where(d => productDetailIds.Contains(d.ProductDetailId ?? 0))
+                .ToList();
+
+            foreach (var item in itemsToRemove)
+            {
+                cart.Details.Remove(item);
+            }
+
+            await _context.SaveChangesAsync();
+        }
+
+
+
+
     }
 
 }

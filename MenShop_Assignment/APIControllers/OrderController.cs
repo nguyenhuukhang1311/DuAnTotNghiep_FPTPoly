@@ -9,7 +9,7 @@ using MenShop_Assignment.Repositories.OrderRepositories;
 using MenShop_Assignment.Repositories.Product;
 using MenShop_Assignment.Services.PaymentServices;
 
-﻿using System.Security.Claims;
+using System.Security.Claims;
 using MenShop_Assignment.Datas;
 using MenShop_Assignment.Extensions;
 using MenShop_Assignment.Mapper;

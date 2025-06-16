@@ -7,6 +7,6 @@ namespace MenShop_Assignment.Repositories.AdminRepositories
     {
         Task<IActionResult> CreateUserByAdmin(StaffRegister model);
         Task<IActionResult> GetUsers(string? email, string? roleId, int? branchId);
-        Task<IActionResult> UpdateUserByEmail(string email, StaffUpdate model);
+        Task<IActionResult> UpdateUserById(string id, StaffUpdate model);
     }
 }

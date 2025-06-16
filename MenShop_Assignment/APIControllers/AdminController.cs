@@ -48,11 +48,12 @@ namespace MenShop_Assignment.Controllers
             return await _adminRepo.GetUsers(email, roleId, branchId);
         }
 
-        [HttpPut("update-user-by-email")]
+        [HttpPut("update-user-by-id")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> UpdateUserByEmail([FromQuery] string email, [FromBody] StaffUpdate model)
+        public async Task<IActionResult> UpdateUserById([FromQuery] string id, [FromBody] StaffUpdate model)
         {
-            return await _adminRepo.UpdateUserByEmail(email, model);
+            return await _adminRepo.UpdateUserById(id, model);
         }
+
     }
 }

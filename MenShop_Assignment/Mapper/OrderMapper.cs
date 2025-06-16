@@ -4,8 +4,9 @@ using MenShop_Assignment.Models.OrderModel;
 
 namespace MenShop_Assignment.Mapper
 {
-    public class OrderMapper 
+    public class OrderMapper
     {
+        //
         public OrderCustomerModel MapToDTO(Order order)
         {
             if (order == null) return null;

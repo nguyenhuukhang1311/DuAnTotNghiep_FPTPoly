@@ -49,7 +49,7 @@ namespace MenShop_Assignment.Mapper.MapperOrder
                 PaymentId = payment.PaymentId,
                 //OrderId = payment.OrderId,
                 Amount = payment.Amount,
-                PaymentDate = payment.PaymentDate,
+                PaymentDate = payment.PaymentDate ?? default(DateTime),
                 Method = payment.Method,
                 Status = payment.Status,
                 TransactionCode = payment.TransactionCode,

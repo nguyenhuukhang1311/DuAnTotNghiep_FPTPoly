@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MenShop_Assignment.Mapper.MapperProduct
 {
-
+    //
     public class ProductMapper
     {
         private readonly ApplicationDbContext _context;

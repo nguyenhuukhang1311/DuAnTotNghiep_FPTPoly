@@ -132,5 +132,28 @@ namespace MenShop_Assignment.APIControllers
                 return BadRequest(new { message = "Đã xảy ra lỗi khi xử lý callback VNPay", error = ex.Message });
             }
         }
+        [HttpPost("create-cod-payment/{orderId}")]
+        public async Task<IActionResult> CreateCodPayment(string orderId)
+        {
+            try
+            {
+                var result = await _paymentService.AddCodPaymentAsync(orderId);
+                return Ok(new
+                {
+                    IsSuccess = true,
+                    Message = "Tạo thanh toán COD thành công",
+                    Data = result
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    IsSuccess = false,
+                    Message = ex.Message
+                });
+            }
+        }
+
     }
 }

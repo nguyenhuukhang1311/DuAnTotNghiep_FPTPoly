@@ -11,24 +11,21 @@ using Microsoft.Extensions.Options;
 using MenShop_Assignment.Mapper;
 using MenShop_Assignment.Repositories;
 using MenShop_Assignment.Models.Momo;
-
 using Microsoft.OpenApi.Models;
-<<<<<<< HEAD
 using MenShop_Assignment.Repositories.AccountRepository;
 using MenShop_Assignment.Repositories.AdminRepositories;
 using MenShop_Assignment.Repositories.Carts;
-=======
 using MenShop_Assignment.Repositories.OrderRepositories;
 using MenShop_Assignment.Mapper.MapperOrder;
-using MenShop_Assignment.Repositories.AccountRepository;
-using MenShop_Assignment.Repositories.AdminRepositories;
 using MenShop_Assignment.Services.Momo;
 using MenShop_Assignment.Services.PaymentServices;
 using Microsoft.Extensions.DependencyInjection;
 using MenShop_Assignment.Repositories.CustomerAddress;
 using MenShop_Assignment.Services.VNPay;
 using MenShop_Assignment.Services;
->>>>>>> 347e7064868db3bdfcc9fbce88638a890d7a5c42
+using MenShop_Assignment.Models.Account;
+using MenShop_Assignment.Repositories.BranchesRepositories;
+
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -47,30 +44,26 @@ builder.Services.AddScoped<ColorMapper>();
 builder.Services.AddScoped<FabricRepository>();
 builder.Services.AddScoped<FabricMapper>();
 builder.Services.AddScoped<UserMapper>();
-<<<<<<< HEAD
+
 
 
 // Add services to the container.
-builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 builder.Services.AddControllers();
 builder.Services.AddScoped<ICartRepository, CartRepository>();
-
-=======
 builder.Services.AddScoped<MapperCustomerAddress>();
 builder.Services.AddScoped<IOrderCustomerRepository, OrderCustomerRepository>();
 builder.Services.AddScoped<IStorageRepository, StorageRepository>();
 builder.Services.AddScoped<IAutoOrderService, AutoOrderService>();
 builder.Services.AddScoped<IOrderCustomerRepository, OrderCustomerRepository>();
->>>>>>> 347e7064868db3bdfcc9fbce88638a890d7a5c42
+builder.Services.AddScoped<IBranchRepository, BranchRepository>();
 builder.Services.AddScoped<ICategoryProductRepository, CategoryProductRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<CategoryProductMapper>();
 builder.Services.AddScoped<ProductMapper>();
-<<<<<<< HEAD
+builder.Services.AddScoped<OutputReceiptRepository>();
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
-
-
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "MenShop API", Version = "v1" });
@@ -102,104 +95,110 @@ builder.Services.AddSwaggerGen(c =>
 
     // Tránh lỗi trùng tên class
     c.CustomSchemaIds(type => type.FullName);
-=======
-builder.Services.AddScoped<StorageDetailMapper>(); 
-builder.Services.AddScoped<IStorageRepository, StorageRepository>();
-builder.Services.AddScoped<IOrderRepository, OrderRepository>();
-builder.Services.AddScoped<MenShop_Assignment.Mapper.MapperOrder.OrderMapper>();
-builder.Services.AddScoped<IAccountRepository, AccountRepository>();
-builder.Services.AddScoped<IPaymentService, PaymentService>();
-builder.Services.AddScoped<IAdminRepository, AdminRepository>();
-builder.Services.AddScoped<ICustomerAddressRepository, CustomerAddressRepository>   ();
-builder.Services.AddScoped<IVNPayService, VNPayService>();
-
-// Add Identity + DbContext
-builder.Services.AddIdentity<User, IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationDbContext>()
-    .AddDefaultTokenProviders();
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-//connect momoApi
-builder.Services.Configure<MomoOptionModel>(
-    builder.Configuration.GetSection("MomoAPI"));
-builder.Services.AddScoped<IMomoServices, MomoServices>();
-builder.Services.AddSingleton(sp =>
-    sp.GetRequiredService<IOptions<MomoOptionModel>>().Value);
-
-// Add Controller
-builder.Services.AddControllers()
-    .AddJsonOptions(options =>
-    {
-        options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
-    });
-
-
-// Swagger
-builder.Services.AddSwaggerGen(options =>
-{
-    options.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
-    options.CustomSchemaIds(type => type.FullName);
->>>>>>> 347e7064868db3bdfcc9fbce88638a890d7a5c42
 });
 
-// CORS
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAll", policy =>
+    builder.Services.AddScoped<StorageDetailMapper>();
+    builder.Services.AddScoped<IStorageRepository, StorageRepository>();
+    builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+    builder.Services.AddScoped<MenShop_Assignment.Mapper.MapperOrder.OrderMapper>();
+    builder.Services.AddScoped<MenShop_Assignment.Mapper.OrderMapper>();
+    builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+    builder.Services.AddScoped<IPaymentService, PaymentService>();
+    builder.Services.AddScoped<IAdminRepository, AdminRepository>();
+    builder.Services.AddScoped<ICustomerAddressRepository, CustomerAddressRepository>();
+    builder.Services.AddScoped<IVNPayService, VNPayService>();
+
+
+    //connect momoApi
+    builder.Services.Configure<MomoOptionModel>(
+        builder.Configuration.GetSection("MomoAPI"));
+    builder.Services.AddScoped<IMomoServices, MomoServices>();
+    builder.Services.AddSingleton(sp =>
+        sp.GetRequiredService<IOptions<MomoOptionModel>>().Value);
+
+    // Add Controller
+    builder.Services.AddControllers()
+        .AddJsonOptions(options =>
+        {
+            options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+        });
+
+
+ 
+
+    // CORS
+    builder.Services.AddCors(options =>
     {
-        policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+        options.AddPolicy("AllowAll", policy =>
+        {
+            policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+        });
     });
-});
-<<<<<<< HEAD
-builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<ProductMapper>();
-builder.Services.AddScoped<StorageDetailMapper>();
-builder.Services.AddScoped<IStorageRepository, StorageRepository>();
-builder.Services.AddScoped<IAccountRepository, AccountRepository>();
-builder.Services.AddControllers()
-    .AddJsonOptions(x =>
-    {
-        x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
-        x.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
-    });
+    builder.Services.AddSwaggerGen();
+    builder.Services.AddScoped<ProductMapper>();
+    builder.Services.AddScoped<StorageDetailMapper>();
+    builder.Services.AddScoped<IStorageRepository, StorageRepository>();
+    builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+    builder.Services.AddControllers()
+        .AddJsonOptions(x =>
+        {
+            x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+            x.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
+        });
 
 
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+    // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+    builder.Services.AddOpenApi();
 
-
-    var app = builder.Build();
-
-    // Cấu hình Swagger middleware
-    if (app.Environment.IsDevelopment())
-=======
 
 var app = builder.Build();
-
-// Middleware
-if (app.Environment.IsDevelopment())
+using (var scope = app.Services.CreateScope())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(options =>
->>>>>>> 347e7064868db3bdfcc9fbce88638a890d7a5c42
+    var services = scope.ServiceProvider;
+    try
     {
-        options.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1");
-    });
+        Console.WriteLine("Seeding admin...");
+        await DbInitializer.SeedAdminAsync(services);
+        Console.WriteLine("Seeding completed.");
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An error occurred seeding the DB.");
+    }
 }
 
-app.UseStaticFiles(new StaticFileOptions
-{
-    FileProvider = new PhysicalFileProvider(
-        Path.Combine(Directory.GetCurrentDirectory(), "StaticFiles")),
-    RequestPath = "/StaticFiles"
-});
 
-app.UseRouting();
-app.UseCors("AllowAll");
-app.UseAuthentication();
-app.UseAuthorization();
-app.UseHttpsRedirection();
-app.MapControllers();
-app.Run();
+
+// Cấu hình Swagger middleware
+if (app.Environment.IsDevelopment())
+
+
+
+        // Middleware
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI(options =>
+
+            {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1");
+            });
+        }
+
+    app.UseStaticFiles(new StaticFileOptions
+    {
+        FileProvider = new PhysicalFileProvider(
+            Path.Combine(Directory.GetCurrentDirectory(), "StaticFiles")),
+        RequestPath = "/StaticFiles"
+    });
+
+    app.UseRouting();
+    app.UseCors("AllowAll");
+    app.UseAuthentication();
+    app.UseAuthorization();
+    app.UseHttpsRedirection();
+    app.MapControllers();
+    app.Run();
+
 

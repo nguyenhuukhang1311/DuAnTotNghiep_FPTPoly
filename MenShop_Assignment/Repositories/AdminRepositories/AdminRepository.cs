@@ -109,11 +109,11 @@ namespace MenShop_Assignment.Repositories
             return new OkObjectResult(result);
         }
 
-        public async Task<IActionResult> UpdateUserByEmail(string email, StaffUpdate model)
+        public async Task<IActionResult> UpdateUserById(string id, StaffUpdate model)
         {
-            var user = await _userManager.FindByEmailAsync(email);
+            var user = await _userManager.FindByIdAsync(id);
             if (user == null)
-                return new NotFoundObjectResult($"Không tìm thấy người dùng với email: {email}");
+                return new NotFoundObjectResult($"Không tìm thấy người dùng với ID: {id}");
 
             user.UserName = model.UserName ?? user.UserName;
             user.BirthDate = model.BirthDate ?? user.BirthDate;
@@ -126,5 +126,6 @@ namespace MenShop_Assignment.Repositories
 
             return new OkObjectResult(new { message = "Cập nhật người dùng thành công." });
         }
+
     }
 }

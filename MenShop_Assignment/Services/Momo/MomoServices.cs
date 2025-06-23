@@ -1,10 +1,10 @@
 ﻿using MenShop_Assignment.Models.Momo;
-using MenShop_Assignment.Models.OrderModels.CreateOrder;
 using Microsoft.OpenApi.Models;
 using System.Security.Cryptography;
 using System.Text;
 using RestSharp;
 using Newtonsoft.Json;
+using MenShop_Assignment.DTOs;
 
 namespace MenShop_Assignment.Services.Momo
 {

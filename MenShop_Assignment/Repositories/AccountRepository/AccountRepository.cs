@@ -26,7 +26,7 @@ namespace MenShop_Assignment.Repositories.AccountRepository
             _configuration = configuration;
         }
 
-        public async Task<IdentityResult> RegisterAsync(UserRegister model)
+        public async Task<IdentityResult> RegisterAsync(AccountRegister model)
         {
             var user = new User
             {
@@ -45,7 +45,7 @@ namespace MenShop_Assignment.Repositories.AccountRepository
             return roleResult;
         }
 
-        public async Task<(string? token, IList<string>? roles, string? error)> LoginAsync(Login model)
+        public async Task<(string? token, IList<string>? roles, string? error)> LoginAsync(AccountLogin model)
         {
             var user = await _userManager.FindByEmailAsync(model.Email);
             if (user == null) return (null, null, "Tài khoản không tồn tại.");

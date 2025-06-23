@@ -1,11 +1,11 @@
 ﻿using MenShop_Assignment.Datas;
-using MenShop_Assignment.Models.AdminModel;
+using MenShop_Assignment.Models.Account;
 using MenShop_Assignment.Repositories.AdminRepositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MenShop_Assignment.Controllers
+namespace MenShop_Assignment.APIControllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -33,7 +33,7 @@ namespace MenShop_Assignment.Controllers
 
         [HttpPost("create-staff")]
 
-        public async Task<IActionResult> CreateUserByAdmin([FromBody] StaffRegister model)
+        public async Task<IActionResult> CreateUserByAdmin([FromBody] AccountRegister model)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -50,7 +50,7 @@ namespace MenShop_Assignment.Controllers
 
         [HttpPut("update-user-by-id")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> UpdateUserById([FromQuery] string id, [FromBody] StaffUpdate model)
+        public async Task<IActionResult> UpdateUserById([FromQuery] string id, [FromBody] AccountUpdate model)
         {
             return await _adminRepo.UpdateUserById(id, model);
         }

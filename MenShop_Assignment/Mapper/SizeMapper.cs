@@ -1,25 +1,17 @@
 ﻿using MenShop_Assignment.Datas;
-using MenShop_Assignment.Models.SizeModel;
+using MenShop_Assignment.Models;
 
 namespace MenShop_Assignment.Mapper
 {
-    public class SizeMapper
+    public static class SizeMapper
     {
-        private readonly ApplicationDbContext _context;
-
-        public SizeMapper(ApplicationDbContext context)
-        {
-            _context = context;
-        }
-
-        public SizeViewModel ToGetSize(Size size)
+        public static SizeViewModel ToSizeViewModel(Size size)
         {
             return new SizeViewModel
             {
+                Name = size.Name ?? null,
                 SizeId = size.SizeId,
-                Name = size.Name
             };
         }
-       
     }
 }

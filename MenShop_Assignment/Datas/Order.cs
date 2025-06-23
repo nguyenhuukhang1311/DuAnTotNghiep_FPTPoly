@@ -4,7 +4,7 @@ namespace MenShop_Assignment.Datas
 {
     public class Order
     {
-        public string OrderId { get; set; }
+        public string? OrderId { get; set; }
         public string? CustomerId { get; set; }
         public string? EmployeeId { get; set; }
         public string? ShipperId { get; set; }
@@ -19,7 +19,6 @@ namespace MenShop_Assignment.Datas
         public decimal? Total {  get; set; }
         public string? Address { get; set; }
         public ICollection<OrderDetail>? Details { get; set; }
-		// Thêm quan hệ với Payment
 		public ICollection<Payment>? Payments { get; set; }
 	}
 }

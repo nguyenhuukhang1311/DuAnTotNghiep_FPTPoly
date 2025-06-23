@@ -1,13 +1,16 @@
-﻿namespace MenShop_Assignment.Models.ProductModels.ReponseDTO
+﻿using MenShop_Assignment.DTOs;
+
+namespace MenShop_Assignment.Models.ProductModels.ReponseDTO
 {
-    public class CreateProductDetailResponse
-    {
-        public int ProductDetailId { get; set; }
-        public int ProductId { get; set; }
-        public int SizeId { get; set; }
-        public int ColorId { get; set; }
-        public int FabricId { get; set; }
-        public bool IsSuccess { get; set; }
-        public string Message { get; set; }
-    }
+	public class CreateProductDetailResponse
+	{
+		public List<ProductDetailResult> Results { get; set; } = new();
+	}
+
+	public class ProductDetailResult
+	{
+		public bool IsSuccess { get; set; }
+		public string Message { get; set; } = string.Empty;
+		public ProductDetailDTO Detail { get; set; } = new();
+	}
 }

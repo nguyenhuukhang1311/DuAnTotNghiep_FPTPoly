@@ -1,24 +1,17 @@
-﻿using System.Drawing;
-using MenShop_Assignment.Datas;
-using MenShop_Assignment.Models.ColorModel;
+﻿using MenShop_Assignment.Datas;
+using MenShop_Assignment.Models;
 
 namespace MenShop_Assignment.Mapper
 {
-    public class ColorMapper
-    {
-        private readonly ApplicationDbContext _context;
-
-        public ColorMapper(ApplicationDbContext context)
-        {
-            _context = context;
-        }
-        public ColorViewModel ToGetColor(Datas.Color color)
-        {
-            return new ColorViewModel
-            {
-                ColorId = color.ColorId,
-                Name = color.Name
-            };
-        }
-    }
+	public static class ColorMapper
+	{
+		public static ColorViewModel ToColorViewModel(Color color)
+		{
+			return new ColorViewModel
+			{
+				ColorId = color.ColorId,
+				Name = color.Name ?? null,
+			};
+		}
+	}
 }

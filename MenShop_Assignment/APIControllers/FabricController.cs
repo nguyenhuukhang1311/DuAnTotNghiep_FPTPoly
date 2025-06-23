@@ -1,95 +1,65 @@
-﻿using MenShop_Assignment.Datas;
-using MenShop_Assignment.Models.ColorModel;
-using MenShop_Assignment.Models.FabricModel;
-using MenShop_Assignment.Repositories;
-using Microsoft.AspNetCore.Http;
+﻿using MenShop_Assignment.Repositories.FabricRepositories;
 using Microsoft.AspNetCore.Mvc;
+using MenShop_Assignment.Models;
 
 namespace MenShop_Assignment.APIControllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class FabricController : ControllerBase
-    {
-        private readonly FabricRepository _fabricRepository;
+	[ApiController]
+	[Route("api/[controller]")]
+	public class FabricController : ControllerBase
+	{
+		private readonly IFabricRepository _fabricRepo;
 
-        public FabricController(FabricRepository fabricRepository)
-        {
-            _fabricRepository = fabricRepository;
-        }
+		public FabricController(IFabricRepository fabricRepo)
+		{
+			_fabricRepo = fabricRepo;
+		}
 
-        [HttpGet]
+		[HttpGet]
+		public async Task<IActionResult> GetAll()
+		{
+			var fabrics = await _fabricRepo.GetAllFabric();
+			return Ok(new ApiResponseModel<List<FabricViewModel>>(true, "Lấy danh sách chất liệu thành công", fabrics, 200));
+		}
 
-        public async Task<List<FabricViewModel>> GetAllFabric()
-        {
-            return await _fabricRepository.GetAllFabric();
-        }
+		[HttpGet("{id}")]
+		public async Task<IActionResult> GetById(int id)
+		{
+			var fabric = await _fabricRepo.GetByIdFabric(id);
+			if (fabric == null)
+				return NotFound(new ApiResponseModel<object>(false, "Không tìm thấy chất liệu", null, 404));
 
-        [HttpGet("{Id}")]
-        public async Task<FabricViewModel> GetByIdFabric(int Id)
-        {
-            return await _fabricRepository.GetByIdFabric(Id);
-        }
+			return Ok(new ApiResponseModel<FabricViewModel>(true, "Lấy chất liệu thành công", fabric, 200));
+		}
 
-        [HttpPost]
+		[HttpPost]
+		public async Task<IActionResult> Create([FromBody] string name)
+		{
+			var result = await _fabricRepo.CreateFabric(name);
+			if (!result)
+				return BadRequest(new ApiResponseModel<object>(false, "Không tạo được chất liệu", null, 400));
 
-        public async Task<ActionResult<Fabric>> CreateFabric(FabricCreateUpdateModel fabricCreateUpdateModel)
-        {
-            var checkColor = await _fabricRepository.GetAllFabric();
+			return Ok(new ApiResponseModel<object>(true, "Tạo chất liệu thành công", null, 201));
+		}
 
-            if (checkColor.Any(s => s.Name.ToLower() == fabricCreateUpdateModel.Name.ToLower()))
-            {
-                return BadRequest(new { message = "Tên Loại đã tồn tại!" });
-            }
+		[HttpPut("{id}")]
+		public async Task<IActionResult> Update(int id, [FromBody] string newName)
+		{
+			var result = await _fabricRepo.UpdateFabric(id, newName);
+			if (!result)
+				return NotFound(new ApiResponseModel<object>(false, "Không tìm thấy chất liệu để cập nhật", null, 404));
 
-            var fabric = new Fabric
-            {
-                Name = fabricCreateUpdateModel.Name,
-            };
+			return Ok(new ApiResponseModel<object>(true, "Cập nhật chất liệu thành công", null, 200));
+		}
 
-            var createFabric = await _fabricRepository.CreateFabric(fabric);
+		[HttpDelete("{id}")]
+		public async Task<IActionResult> Delete(int id)
+		{
+			var result = await _fabricRepo.DeleteFabric(id);
+			if (!result)
+				return NotFound(new ApiResponseModel<object>(false, "Không tìm thấy chất liệu để xoá", null, 404));
 
-            return Ok(new { message = "Success add Loại", data = createFabric });
-        }
-
-        [HttpPut("{Id}")]
-        public async Task<ActionResult> UpdateFabricById(int Id, FabricCreateUpdateModel updateFabric)
-        {
-            var checkFabric = await _fabricRepository.GetAllFabric();
-
-            if (checkFabric.Any(s => s.Name.ToLower() == updateFabric.Name.ToLower()))
-            {
-                return BadRequest(new { message = "Tên loại đã tồn tại!" });
-            }
-            // Kiểm tra đối tượng sizeUpdate
-            if (updateFabric == null || string.IsNullOrEmpty(updateFabric.Name))
-            {
-                return BadRequest(new { message = "Dữ liệu cập nhật không hợp lệ" });
-            }
-
-            var fabricCheck = await _fabricRepository.GetById(Id);
-            if (fabricCheck == null)
-            {
-                return NotFound(new { message = "Không tìm thấy loại" });
-            }
-
-            fabricCheck.Name = updateFabric.Name;
-
-            await _fabricRepository.UpdateFabric(Id, fabricCheck);
-
-            return Ok(new { message = "Cập nhật loại thành công" });
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteFabricById(int id)
-        {
-            var result = await _fabricRepository.DeleteFabric(id);
-            if (!result)
-            {
-                return NotFound(new { message = "Không tìm thấy loại" });
-            }
-
-            return Ok(new { message = "Xóa loại thành công" });
-        }
-    }
+			return Ok(new ApiResponseModel<object>(true, "Xoá chất liệu thành công", null, 200));
+		}
+	}
 }

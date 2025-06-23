@@ -1,7 +1,7 @@
 ﻿// Repositories/AdminRepository.cs
 using MenShop_Assignment.Datas;
-using MenShop_Assignment.Models;
-using MenShop_Assignment.Models.AdminModel;
+using MenShop_Assignment.Models.AccountModels;
+using MenShop_Assignment.Models.Account;
 using MenShop_Assignment.Repositories.AdminRepositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -19,7 +19,7 @@ namespace MenShop_Assignment.Repositories
             _roleManager = roleManager;
         }
 
-        public async Task<IActionResult> CreateUserByAdmin(StaffRegister model)
+        public async Task<IActionResult> CreateUserByAdmin(AccountRegister model)
         {
             if (string.Equals(model.Role, "Khách hàng", StringComparison.OrdinalIgnoreCase))
                 return new BadRequestObjectResult("Admin không được phép tạo tài khoản với vai trò Khách hàng.");
@@ -109,7 +109,7 @@ namespace MenShop_Assignment.Repositories
             return new OkObjectResult(result);
         }
 
-        public async Task<IActionResult> UpdateUserById(string id, StaffUpdate model)
+        public async Task<IActionResult> UpdateUserById(string id, AccountUpdate model)
         {
             var user = await _userManager.FindByIdAsync(id);
             if (user == null)

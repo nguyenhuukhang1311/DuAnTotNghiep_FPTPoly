@@ -1,39 +1,40 @@
 ﻿using MenShop_Assignment.Datas;
+using MenShop_Assignment.DTOs;
 using MenShop_Assignment.Models;
-using MenShop_Assignment.Models.BranchModel;
 
 namespace MenShop_Assignment.Mapper
 {
-    public class BranchMapper
+    public static class BranchMapper
     {
-        private readonly ApplicationDbContext _context;
-        public BranchMapper(ApplicationDbContext context)
+        public static BranchViewModel ToBranchViewModel(Branch branch)
         {
-            _context = context;
-        }
-
-        public BranchProductViewModel ToDto(BranchDetail branchDetail)
-        {
-            return new BranchProductViewModel
+            return new BranchViewModel
             {
-                ProductId = branchDetail.ProductDetail?.ProductId ?? null,
-                ProductName = branchDetail.ProductDetail?.Product?.ProductName ?? "",
-                Image = _context.ImagesProducts.Where(x=>x.ProductDetailId == branchDetail.ProductDetailId).FirstOrDefault().FullPath,
-                Description = branchDetail.ProductDetail?.Product?.Description ?? "",
+                BranchId = branch.BranchId,
+                Address = branch.Address ?? null,
+                ManagerName = branch.Manager?.FullName ?? null,
+                BranchDetails = branch.BranchDetails?.Select(ToBranchDetailViewModel).ToList() ?? [],
             };
         }
-
-        public BranchProductDetailViewModel ToDetailDto(BranchDetail branchDetail)
+        public static ProductDetailViewModel ToBranchDetailViewModel(BranchDetail branchDetail)
         {
-            return new BranchProductDetailViewModel
+            return new ProductDetailViewModel
             {
-                ProductName = branchDetail.ProductDetail?.Product?.ProductName ?? "",
-                Price = branchDetail.Price,
-                Image = _context.ImagesProducts.Where(x => x.ProductDetailId == branchDetail.ProductDetailId).FirstOrDefault().FullPath,
-                Quantity = branchDetail.Quantity,
-                ColorName = branchDetail.ProductDetail?.Color?.Name ?? "",
-                SizeName = branchDetail.ProductDetail?.Size?.Name ?? "",
-                FabricName = branchDetail.ProductDetail?.Fabric?.Name ?? ""
+                DetailId = branchDetail.ProductDetailId,
+                ProductName = branchDetail.ProductDetail?.Product?.ProductName ?? null,
+                FabricName = branchDetail.ProductDetail?.Fabric?.Name ?? null,
+                ColorName = branchDetail.ProductDetail?.Color?.Name ?? null,
+                SizeName = branchDetail.ProductDetail?.Size?.Name ?? null,
+                SellPrice = branchDetail.Price ?? null,
+				Images = branchDetail.ProductDetail?.Images?.Select(x => x.FullPath).ToList() ?? [],
+                Quantity = branchDetail.Quantity ?? null,
+            };
+        }
+        public static Branch ToBranch(CreateUpdateBranchDTO branchDTO)
+        {
+            return new Branch
+            {
+                Address = branchDTO.Address ?? null,
             };
         }
     }

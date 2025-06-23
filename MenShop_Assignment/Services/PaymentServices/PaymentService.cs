@@ -1,29 +1,27 @@
 ﻿using MenShop_Assignment.Datas;
 using MenShop_Assignment.Extensions;
-using MenShop_Assignment.Mapper.MapperOrder;
 using MenShop_Assignment.Models.Momo;
-using MenShop_Assignment.Models.Payment;
-using MenShop_Assignment.Models.OrderModels.OrderReponse;
 using MenShop_Assignment.Repositories.OrderRepositories;
 using MenShop_Assignment.Services.Momo;
 using Microsoft.EntityFrameworkCore;
+using MenShop_Assignment.Mapper;
+using MenShop_Assignment.Models;
+using MenShop_Assignment.DTOs;
 
 namespace MenShop_Assignment.Services.PaymentServices
 {
     public class PaymentService : IPaymentService
     {
         private readonly ApplicationDbContext _context;
-        private readonly OrderMapper _mapper;
         private readonly IMomoServices _momoServices;
         private readonly IOrderRepository _orderRepository;
-        public PaymentService(ApplicationDbContext context, OrderMapper orderMapper, IMomoServices momoServices, IOrderRepository orderRepository)
+        public PaymentService(ApplicationDbContext context, IMomoServices momoServices, IOrderRepository orderRepository)
         {
             _context = context;
-            _mapper = orderMapper;
             _momoServices = momoServices;
             _orderRepository = orderRepository;
         }
-        public async Task<PaymentResponseDto> AddPaymentToOrderAsync(string orderId, CreatePaymentDto dto)
+        public async Task<PaymentViewModel> AddPaymentToOrderAsync(string orderId, CreatePaymentDTO dto)
         {
             var order = await _context.Orders
                 .Include(o => o.Payments)
@@ -102,10 +100,10 @@ namespace MenShop_Assignment.Services.PaymentServices
             // Load Discounts để trả về đầy đủ
             await _context.Entry(payment).Collection(p => p.Discounts).LoadAsync();
 
-            return _mapper.ToPaymentDto(payment);
+            return PaymentMapper.ToPaymentViewModel(payment);
         }
 
-        public async Task<PaymentResponseDto> AddCodPaymentAsync(string orderId)
+        public async Task<PaymentViewModel> AddCodPaymentAsync(string orderId)
         {
             var order = await _context.Orders
                 .Include(o => o.Payments)
@@ -133,13 +131,7 @@ namespace MenShop_Assignment.Services.PaymentServices
 
             await _context.SaveChangesAsync();
 
-            return _mapper.ToPaymentDto(payment);
+            return PaymentMapper.ToPaymentViewModel(payment);
         }
-
-
-
-
-
     }
-
 }

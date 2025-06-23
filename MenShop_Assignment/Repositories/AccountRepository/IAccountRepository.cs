@@ -5,7 +5,7 @@ namespace MenShop_Assignment.Repositories.AccountRepository
 {
     public interface IAccountRepository
     {
-        Task<IdentityResult> RegisterAsync(UserRegister model);
-        Task<(string? token, IList<string>? roles, string? error)> LoginAsync(Login model);
+        Task<IdentityResult> RegisterAsync(AccountRegister model);
+        Task<(string? token, IList<string>? roles, string? error)> LoginAsync(AccountLogin model);
     }
 }

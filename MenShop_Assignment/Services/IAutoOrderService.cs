@@ -1,4 +1,4 @@
-﻿using MenShop_Assignment.DTO;
+﻿using MenShop_Assignment.DTOs;
 namespace MenShop_Assignment.Services
 {
     public interface IAutoOrderService

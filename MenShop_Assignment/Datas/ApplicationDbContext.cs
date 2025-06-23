@@ -29,6 +29,8 @@ namespace MenShop_Assignment.Datas
         public DbSet<OutputReceiptDetail> OutputReceiptDetails { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductDetail> ProductDetails { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<PaymentDiscount> PaymentDiscounts { get; set; }
         public DbSet<Size> Sizes { get; set; }
         public DbSet<Storage> Storages { get; set; }
         public DbSet<StorageDetail> StorageDetails { get; set; }

@@ -1,95 +1,65 @@
-﻿using MenShop_Assignment.Datas;
-using MenShop_Assignment.Models.ColorModel;
-using MenShop_Assignment.Models.SizeModel;
-using MenShop_Assignment.Repositories;
-using Microsoft.AspNetCore.Http;
+﻿using MenShop_Assignment.Repositories.ColorRepositories;
 using Microsoft.AspNetCore.Mvc;
+using MenShop_Assignment.Models;
 
 namespace MenShop_Assignment.APIControllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ColorController : ControllerBase
-    {
-        private readonly ColorRepository _colorRepository;
+	[ApiController]
+	[Route("api/[controller]")]
+	public class ColorController : ControllerBase
+	{
+		private readonly IColorRepository _colorRepo;
 
-        public ColorController(ColorRepository colorRepository)
-        {
-            _colorRepository = colorRepository;
-        }
+		public ColorController(IColorRepository colorRepo)
+		{
+			_colorRepo = colorRepo;
+		}
 
-        [HttpGet]
+		[HttpGet]
+		public async Task<IActionResult> GetAll()
+		{
+			var colors = await _colorRepo.GetAllColor();
+			return Ok(new ApiResponseModel<List<ColorViewModel>>(true, "Lấy danh sách màu thành công", colors, 200));
+		}
 
-        public async Task<List<ColorViewModel>> GetAllColor()
-        {
-            return await _colorRepository.GetAllColor();
-        }
+		[HttpGet("{id}")]
+		public async Task<IActionResult> GetById(int id)
+		{
+			var color = await _colorRepo.GetByIdColor(id);
+			if (color == null)
+				return NotFound(new ApiResponseModel<object>(false, "Không tìm thấy màu", null, 404));
 
-        [HttpGet("{Id}")]
-        public async Task<ColorViewModel> GetByIdColor(int Id)
-        {
-            return await _colorRepository.GetByIdColor(Id);
-        }
+			return Ok(new ApiResponseModel<ColorViewModel>(true, "Lấy màu thành công", color, 200));
+		}
 
-        [HttpPost]
+		[HttpPost]
+		public async Task<IActionResult> Create([FromBody] string name)
+		{
+			var result = await _colorRepo.CreateColor(name);
+			if (!result)
+				return BadRequest(new ApiResponseModel<object>(false, "Không tạo được màu", null, 400));
 
-        public async Task<ActionResult<Color>> CreateColor(ColorCreateUpdateModel colorCreateUpdateModel)
-        {
-            var checkColor = await _colorRepository.GetAllColor();
+			return Ok(new ApiResponseModel<object>(true, "Tạo màu thành công", null, 201));
+		}
 
-            if (checkColor.Any(s => s.Name.ToLower() == colorCreateUpdateModel.Name.ToLower()))
-            {
-                return BadRequest(new { message = "Tên size đã tồn tại!" });
-            }
+		[HttpPut("{id}")]
+		public async Task<IActionResult> Update(int id, [FromBody] string newName)
+		{
+			var result = await _colorRepo.UpdateColor(id, newName);
+			if (!result)
+				return NotFound(new ApiResponseModel<object>(false, "Không tìm thấy màu để cập nhật", null, 404));
 
-            var color = new Color
-            {
-                Name = colorCreateUpdateModel.Name,
-            };
+			return Ok(new ApiResponseModel<object>(true, "Cập nhật màu thành công", null, 200));
+		}
 
-            var createColor = await _colorRepository.CreateColor(color);
+		[HttpDelete("{id}")]
+		public async Task<IActionResult> Delete(int id)
+		{
+			var result = await _colorRepo.DeleteColor(id);
+			if (!result)
+				return NotFound(new ApiResponseModel<object>(false, "Không tìm thấy màu để xoá", null, 404));
 
-            return Ok(new { message = "Success add size", data = createColor });
-        }
-
-        [HttpPut("{Id}")]
-        public async Task<ActionResult> UpdateSizeById(int Id, ColorCreateUpdateModel colorUpdate)
-        {
-            var checkColor = await _colorRepository.GetAllColor();
-
-            if (checkColor.Any(s => s.Name.ToLower() == colorUpdate.Name.ToLower()))
-            {
-                return BadRequest(new { message = "Tên màu đã tồn tại!" });
-            }
-            // Kiểm tra đối tượng sizeUpdate
-            if (colorUpdate == null || string.IsNullOrEmpty(colorUpdate.Name))
-            {
-                return BadRequest(new { message = "Dữ liệu cập nhật không hợp lệ" });
-            }
-
-            var colorrCheck = await _colorRepository.GetById(Id);
-            if (colorrCheck == null)
-            {
-                return NotFound(new { message = "Không tìm thấy màu" });
-            }
-
-            colorrCheck.Name = colorUpdate.Name;
-
-            await _colorRepository.UpdateColor(Id, colorrCheck);
-
-            return Ok(new { message = "Cập nhật màu thành công" });
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteSizeById(int id)
-        {
-            var result = await _colorRepository.DeleteColor(id);
-            if (!result)
-            {
-                return NotFound(new { message = "Không tìm thấy màu" });
-            }
-
-            return Ok(new { message = "Xóa màu thành công" });
-        }
-    }
+			return Ok(new ApiResponseModel<object>(true, "Xoá màu thành công", null, 200));
+		}
+	}
 }

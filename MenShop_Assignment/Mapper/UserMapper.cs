@@ -1,5 +1,5 @@
 ﻿using MenShop_Assignment.Datas;
-using MenShop_Assignment.Models;
+using MenShop_Assignment.Models.AccountModels;
 using Microsoft.AspNetCore.Identity;
 
 namespace MenShop_Assignment.Mapper

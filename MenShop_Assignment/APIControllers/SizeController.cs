@@ -1,7 +1,5 @@
-﻿using MenShop_Assignment.Datas;
-using MenShop_Assignment.Models.SizeModel;
-using MenShop_Assignment.Repositories;
-using Microsoft.AspNetCore.Http;
+﻿using MenShop_Assignment.Models;
+using MenShop_Assignment.Repositories.SizeRepositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MenShop_Assignment.APIControllers
@@ -10,84 +8,54 @@ namespace MenShop_Assignment.APIControllers
     [ApiController]
     public class SizeController : ControllerBase
     {
-       private readonly SizeRepository _sizeRepository;
-        private readonly ApplicationDbContext _context;
+		private readonly ISizeRepository _sizeRepo;
 
-        public SizeController(SizeRepository sizeRepository, ApplicationDbContext context)
-        {
-            _sizeRepository = sizeRepository;
-            _context = context;
-        }
+		public SizeController(ISizeRepository sizeRepo)
+		{
+			_sizeRepo = sizeRepo;
+		}
 
-        [HttpGet]
-        public async Task<List<SizeViewModel>> GetAllSize()
-        {
-            return await _sizeRepository.GetAllSize();
-        }
-        [HttpGet("{Id}")]
-        public async Task<SizeViewModel> GetByIdSize(int Id)
-        {
-            return await _sizeRepository.GetByIdSize(Id);
-        }
+		[HttpGet]
+		public async Task<IActionResult> GetAll()
+		{
+			var sizes = await _sizeRepo.GetAllSize();
+			return Ok(new ApiResponseModel<List<SizeViewModel>>(true, "Lấy danh sách size thành công", sizes, 200));
+		}
 
-        [HttpPost]
-        public async Task<ActionResult<Size>> CreateSize(SizeCreateUpdateModel sizeCreateUpdateModel)
-        {
-            var checkSize = await _sizeRepository.GetAllSize();
+		[HttpGet("{id}")]
+		public async Task<IActionResult> GetById(int id)
+		{
+			var size = await _sizeRepo.GetByIdSize(id);
+			if (size == null)
+				return NotFound(new ApiResponseModel<object>(false, "Không tìm thấy size", null, 404));
+			return Ok(new ApiResponseModel<SizeViewModel>(true, "Lấy size thành công", size, 200));
+		}
 
-            if (checkSize.Any(s => s.Name.ToLower() == sizeCreateUpdateModel.Name.ToLower()))
-            {
-                return BadRequest(new { message = "Tên size đã tồn tại!" });
-            }
+		[HttpPost]
+		public async Task<IActionResult> Create([FromBody] string name)
+		{
+			var result = await _sizeRepo.CreateSize(name);
+			if (!result)
+				return BadRequest(new ApiResponseModel<object>(false, "Không tạo được size", null, 400));
+			return Ok(new ApiResponseModel<object>(true, "Tạo size thành công", null, 201));
+		}
 
-            var size = new Size
-            {
-                Name = sizeCreateUpdateModel.Name,
-            };
+		[HttpPut("{id}")]
+		public async Task<IActionResult> Update(int id, [FromBody] string name)
+		{
+			var result = await _sizeRepo.UpdateSize(id, name);
+			if (!result)
+				return NotFound(new ApiResponseModel<object>(false, "Không tìm thấy size để cập nhật", null, 404));
+			return Ok(new ApiResponseModel<object>(true, "Cập nhật size thành công", null, 200));
+		}
 
-            var createSize = await _sizeRepository.CreateSize(size);
-
-            return Ok(new { message = "Success add size", data = createSize });
-        }
-        [HttpPut("{Id}")]
-        public async Task<ActionResult> UpdateSizeById(int Id, SizeCreateUpdateModel sizeUpdate)
-        {
-            var checkSize = await _sizeRepository.GetAllSize();
-
-            if (checkSize.Any(s => s.Name.ToLower() == sizeUpdate.Name.ToLower()))
-            {
-                return BadRequest(new { message = "Tên size đã tồn tại!" });
-            }
-            // Kiểm tra đối tượng sizeUpdate
-            if (sizeUpdate == null || string.IsNullOrEmpty(sizeUpdate.Name))
-            {
-                return BadRequest(new { message = "Dữ liệu cập nhật không hợp lệ" });
-            }
-
-            var sizeCheck = await _sizeRepository.GetById(Id);
-            if (sizeCheck == null)
-            {
-                return NotFound(new { message = "Không tìm thấy size" });
-            }
-
-            sizeCheck.Name = sizeUpdate.Name;
-
-            await _sizeRepository.UpdateSizeAsync(Id, sizeCheck);
-
-            return Ok(new { message = "Cập nhật size thành công" });
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteSizeById(int id)
-        {
-            var result = await _sizeRepository.DeleteSize(id);
-            if (!result)
-            {
-                return NotFound(new { message = "Không tìm thấy size" });
-            }
-
-            return Ok(new { message = "Xóa size thành công" });
-        }
-
-    }
+		[HttpDelete("{id}")]
+		public async Task<IActionResult> Delete(int id)
+		{
+			var result = await _sizeRepo.DeleteSize(id);
+			if (!result)
+				return NotFound(new ApiResponseModel<object>(false, "Không tìm thấy size để xoá", null, 404));
+			return Ok(new ApiResponseModel<object>(true, "Xoá size thành công", null, 200));
+		}
+	}
 }

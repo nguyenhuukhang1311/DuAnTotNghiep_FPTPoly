@@ -1,57 +1,41 @@
 ﻿using MenShop_Assignment.Datas;
-using MenShop_Assignment.Extensions;
-using MenShop_Assignment.Models.OrderModel;
+using MenShop_Assignment.Models;
 
 namespace MenShop_Assignment.Mapper
 {
-    public class OrderMapper
+    public static class OrderMapper
     {
-        //
-        public OrderCustomerModel MapToDTO(Order order)
+        public static OrderViewModel ToOrderViewModel(Order order)
         {
-            if (order == null) return null;
-
-            return new OrderCustomerModel
+            return new OrderViewModel
             {
                 OrderId = order.OrderId,
-                CustomerId = order.CustomerId,
-                CustomerName = order.Customer?.UserName,
-                EmployeeId = order.EmployeeId,
-                EmployeeName = order.Employee?.UserName,
-                ShipperId = order.ShipperId,
-                ShipperName = order.Shipper?.UserName,
-                CreatedDate = order.CreatedDate,
-                CompletedDate = order.CompletedDate,
-                PaidDate = order.PaidDate,
-                Status = order.Status,
-                IsOnline = order.IsOnline,
-                Total = order.Total,
-                //Details = order.Details?.Select(MapOrderDetailToDTO).ToList()
+                CustomerName = order.Customer?.UserName ?? null,
+                EmployeeName = order.Employee?.UserName ?? null,
+                ShipperName = order.Shipper?.UserName ?? null,
+                CreatedDate = order.CreatedDate ?? null,
+                CompletedDate = order.CompletedDate ?? null,
+                PaidDate = order.PaidDate ?? null,
+                Status = order.Status.ToString() ?? null,
+				IsOnline = (order.IsOnline == true ? "Online" : "Offline") ?? null,
+                Total = order.Total ?? null,
+                Details = order.Details?.Select(ToOrderDetailViewModel).ToList() ?? [],
+                Payments = order.Payments?.Select(PaymentMapper.ToPaymentViewModel).ToList() ?? []
             };
         }
-
-        public List<OrderCustomerModel> MapToDTO(List<Order> orders)
+        public static ProductDetailViewModel ToOrderDetailViewModel(OrderDetail orderDetail)
         {
-            if (orders == null || !orders.Any()) return new List<OrderCustomerModel>();
-
-            return orders.Select(MapToDTO).ToList();
-        }
-
-        public OrderDetailCustomerModel MapOrderDetailToDTO(OrderDetail orderDetail)
-        {
-            if (orderDetail == null) return null;
-
-            return new OrderDetailCustomerModel
-            {
-                ProductDetailId = orderDetail.ProductDetailId,
-                ProductName = orderDetail.ProductDetail?.Product?.ProductName,
-                SizeName = orderDetail.ProductDetail?.Size?.Name,
-                ColorName = orderDetail.ProductDetail?.Color?.Name,
-                FabricName = orderDetail.ProductDetail?.Fabric?.Name,
-                Quantity = orderDetail.Quantity,
-                Price = orderDetail.Price,
-                TotalPrice = (orderDetail.Quantity ?? 0) * (orderDetail.Price ?? 0)
+            return new ProductDetailViewModel
+			{
+                DetailId = orderDetail.ProductDetailId,
+                ProductName = orderDetail.ProductDetail?.Product?.ProductName ?? null,
+                SizeName = orderDetail.ProductDetail?.Size?.Name ?? null,
+                ColorName = orderDetail.ProductDetail?.Color?.Name ?? null,
+				FabricName = orderDetail.ProductDetail?.Fabric?.Name ?? null,
+                Quantity = orderDetail.Quantity ?? null,
+                SellPrice = orderDetail.Price ?? null,
             };
         }
     }
+
 }

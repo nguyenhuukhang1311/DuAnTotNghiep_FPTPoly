@@ -1,6 +1,5 @@
-﻿using MenShop_Assignment.Extensions;
-using MenShop_Assignment.Models.OrderModels.CreateOrder;
-using MenShop_Assignment.Models.Payment;
+﻿using MenShop_Assignment.DTOs;
+using MenShop_Assignment.Extensions;
 using MenShop_Assignment.Models.VNPay;
 using MenShop_Assignment.Repositories.OrderRepositories;
 using MenShop_Assignment.Services.Momo;
@@ -86,7 +85,7 @@ namespace MenShop_Assignment.APIControllers
 
 
         [HttpPost("api/payments/{orderId}")]
-        public async Task<IActionResult> AddPaymentToOrder(string orderId, [FromBody] CreatePaymentDto dto)
+        public async Task<IActionResult> AddPaymentToOrder(string orderId, [FromBody] CreatePaymentDTO dto)
         {
             try
             {
@@ -112,7 +111,7 @@ namespace MenShop_Assignment.APIControllers
                     return BadRequest(new { message = "Thanh toán không hợp lệ hoặc xác thực lỗi." });
                 }
 
-                var createPaymentDto = new CreatePaymentDto
+                var createPaymentDto = new CreatePaymentDTO
                 {
                     Amount = VNPayresponse.Amount,
                     PaymentDate = DateTime.UtcNow,

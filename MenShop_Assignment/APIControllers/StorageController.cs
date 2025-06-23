@@ -1,7 +1,5 @@
-﻿using MenShop_Assignment.Datas;
-using MenShop_Assignment.Models;
-using MenShop_Assignment.Repositories;
-using Microsoft.AspNetCore.Authorization;
+﻿using MenShop_Assignment.Models;
+using MenShop_Assignment.Repositories.StorageRepositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MenShop_Assignment.APIControllers
@@ -10,28 +8,36 @@ namespace MenShop_Assignment.APIControllers
     [ApiController]
     public class StorageController : ControllerBase
     {
-        private readonly IStorageRepository _storageRepository;
-        public StorageController(IStorageRepository storageRepository)
-        {
-            _storageRepository = storageRepository;
-        }
-        [HttpGet]
-        public async Task<IActionResult> GetAllStorages()
-        {
-            var result = await _storageRepository.GetAllStoragesAsync();
-            return Ok(result);
-        }
-        [HttpGet("getdetail")]
-        public async Task<IActionResult> GetDetailByProductId(int productId)
-        {
-            var result = await _storageRepository.GetDetailsByProductId(productId);
-            return Ok(result);
-        }
-        [HttpGet("getproducts")]
-        public async Task<IActionResult> GetProductByStorageId(int storageId)
-        {
-            var result = await _storageRepository.GetProductsByStorageIdAsync(storageId);
-            return Ok(result);
-        }
-    }
+		private readonly IStorageRepository _storageRepo;
+
+		public StorageController(IStorageRepository storageRepo)
+		{
+			_storageRepo = storageRepo;
+		}
+
+		[HttpGet]
+		public async Task<IActionResult> GetAll()
+		{
+			var storages = await _storageRepo.GetAllStoragesAsync();
+			return Ok(new ApiResponseModel<List<StorageViewModel>>(true, "Lấy danh sách kho thành công", storages, 200));
+		}
+
+		[HttpGet("{storageId}/products")]
+		public async Task<IActionResult> GetProductsByStorageId(int storageId)
+		{
+			var products = await _storageRepo.GetProductsByStorageIdAsync(storageId);
+			if (products == null)
+				return NotFound(new ApiResponseModel<object>(false, "Không tìm thấy sản phẩm trong kho", null, 404));
+			return Ok(new ApiResponseModel<List<ProductViewModel>>(true, "Lấy sản phẩm trong kho thành công", products, 200));
+		}
+
+		[HttpGet("product/{productId}/details")]
+		public async Task<IActionResult> GetDetailsByProductId(int productId)
+		{
+			var details = await _storageRepo.GetDetailsByProductId(productId);
+			if (details == null)
+				return NotFound(new ApiResponseModel<object>(false, "Không tìm thấy chi tiết sản phẩm trong kho", null, 404));
+			return Ok(new ApiResponseModel<List<ProductDetailViewModel>>(true, "Lấy chi tiết sản phẩm thành công", details, 200));
+		}
+	}
 }

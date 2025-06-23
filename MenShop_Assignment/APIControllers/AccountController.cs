@@ -1,9 +1,8 @@
-﻿
-using MenShop_Assignment.Models.Account;
+﻿using MenShop_Assignment.Models.Account;
 using MenShop_Assignment.Repositories.AccountRepository;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MenShop_Assignment.Controllers
+namespace MenShop_Assignment.APIControllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -19,7 +18,7 @@ namespace MenShop_Assignment.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] UserRegister model)
+        public async Task<IActionResult> Register([FromBody] AccountRegister model)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
@@ -30,7 +29,7 @@ namespace MenShop_Assignment.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] Login model)
+        public async Task<IActionResult> Login([FromBody] AccountLogin model)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
@@ -39,10 +38,10 @@ namespace MenShop_Assignment.Controllers
 
             return Ok(new
             {
-                token = token,
+                token,
                 expiration = DateTime.UtcNow.AddMinutes(Convert.ToDouble(_configuration["Jwt:ExpireMinutes"])),
                 email = model.Email,
-                roles = roles
+                roles
             });
         }
     }

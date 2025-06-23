@@ -1,11 +1,14 @@
-﻿using MenShop_Assignment.Models.OrderModels.CreateOrder;
-using MenShop_Assignment.Models.OrderModels.OrderReponse;
+﻿using MenShop_Assignment.DTOs;
+using MenShop_Assignment.Models;
 
 namespace MenShop_Assignment.Repositories.OrderRepositories
 {
-    public interface IOrderRepository
-    {
-        Task<OrderResponseDto> CreateOrderAsync(CreateOrderDto createProductDTO);
-        //Task DeleteOrderAsync(int orderId);
-    }
+	public interface IOrderRepository
+	{
+		Task<bool> CancelOrderAsync(string orderId);
+		Task<bool> CompletedOrderStatus(string orderId);
+		Task<bool> CreateOrderAsync(CreateOrderDTO createProductDTO);
+		Task<List<OrderViewModel>> GetOrdersAsync(SearchOrderDTO? search);
+		Task<bool> ShipperAcceptOrderByOrderId(string orderId, string shipperId);
+	}
 }

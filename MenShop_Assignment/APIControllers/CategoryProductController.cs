@@ -1,127 +1,69 @@
-﻿using MenShop_Assignment.Repositories.Category;
-using MenShop_Assignment.Models.CategoryModels;
+﻿using MenShop_Assignment.DTOs;
+using MenShop_Assignment.Models;
+using MenShop_Assignment.Repositories.Category;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 
-namespace MenShop_Assignment.Controllers
+namespace MenShop_Assignment.APIControllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class CategoryController : ControllerBase
-    {
-        private readonly ICategoryProductRepository _categoryProductRepository;
+	[ApiController]
+	[Route("api/[controller]")]
+	public class CategoryProductController : ControllerBase
+	{
+		private readonly ICategoryProductRepository _categoryRepo;
 
-        public CategoryController(ICategoryProductRepository categoryProductRepository)
-        {
-            _categoryProductRepository = categoryProductRepository;
-        }
+		public CategoryProductController(ICategoryProductRepository categoryRepo)
+		{
+			_categoryRepo = categoryRepo;
+		}
 
-        // GET: api/category
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<CategoryModelView>>> GetAllCategories()
-        {
-            try
-            {
-                var categories = await _categoryProductRepository.GetAllCategoriesAsync();
-                if (categories == null || categories.Count() == 0)
-                {
-                    return NotFound("Không tìm thấy danh mục nào.");
-                }
-                return Ok(categories);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Đã xảy ra lỗi khi lấy danh mục: {ex.Message}");
-            }
-        }
+		[HttpGet]
+		public async Task<IActionResult> GetAll()
+		{
+			var categories = await _categoryRepo.GetAllCategoriesAsync();
+			if (categories == null || !categories.Any())
+				return NotFound(new ApiResponseModel<object>(false, "Không tìm thấy loại sản phẩm nào", null, 404));
 
-        // GET: api/category/{id}
-        [HttpGet("{id}")]
-        public async Task<ActionResult<CategoryModelView>> GetCategoryById(int id)
-        {
-            try
-            {
-                var category = await _categoryProductRepository.GetCategoryByIdAsync(id);
-                if (category == null)
-                {
-                    return NotFound($"Không tìm thấy danh mục với ID {id}.");
-                }
-                return Ok(category);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Đã xảy ra lỗi khi lấy danh mục với ID {id}: {ex.Message}");
-            }
-        }
+			return Ok(new ApiResponseModel<List<CategoryProductViewModel>>(true, "Lấy danh sách loại sản phẩm thành công", categories, 200));
+		}
 
-        // POST: api/category
-        [HttpPost]
-        public async Task<ActionResult<CategoryModelView>> CreateCategory(CategoryModelView category)
-        {
-            try
-            {
-                if (category == null)
-                {
-                    return BadRequest("Dữ liệu danh mục không hợp lệ. Vui lòng cung cấp đầy đủ thông tin yêu cầu.");
-                }
+		[HttpGet("{id}")]
+		public async Task<IActionResult> GetById(int id)
+		{
+			var category = await _categoryRepo.GetCategoryByIdAsync(id);
+			if (category == null)
+				return NotFound(new ApiResponseModel<object>(false, "Không tìm thấy loại sản phẩm", null, 404));
 
-                var createdCategory = await _categoryProductRepository.CreateCategoryAsync(category);
-                return CreatedAtAction(nameof(GetCategoryById), new { id = createdCategory.CategoryId }, createdCategory);
-            }
-            catch (Exception ex)
-            {
-                var innerMessage = ex.InnerException?.Message;
-                return StatusCode(500, $"Đã xảy ra lỗi khi tạo danh mục: {ex.Message} | Chi tiết: {innerMessage}");
-            }
+			return Ok(new ApiResponseModel<CategoryProductViewModel>(true, "Lấy loại sản phẩm thành công", category, 200));
+		}
 
-        }
+		[HttpPost]
+		public async Task<IActionResult> Create([FromBody] CreateUpdateCategoryDTO dto)
+		{
+			var success = await _categoryRepo.CreateCategoryAsync(dto);
+			if (!success)
+				return BadRequest(new ApiResponseModel<object>(false, "Tạo loại sản phẩm thất bại", null, 400));
 
-        // PUT: api/category/{id}
-        [HttpPut("{id}")]
-        public async Task<ActionResult<CategoryModelView>> UpdateCategory(int id, CategoryModelView category)
-        {
-            try
-            {
-                if (id != category.CategoryId)
-                {
-                    return BadRequest("ID danh mục không hợp lệ!");
-                }
+			return Ok(new ApiResponseModel<object>(true, "Tạo loại sản phẩm thành công", null, 201));
+		}
 
-                var updatedCategory = await _categoryProductRepository.UpdateCategoryAsync(category);
-                if (updatedCategory == null)
-                {
-                    return NotFound($"Không tìm thấy danh mục với ID {id}.");
-                }
+		[HttpPut]
+		public async Task<IActionResult> Update([FromBody] CreateUpdateCategoryDTO dto)
+		{
+			var success = await _categoryRepo.UpdateCategoryAsync(dto);
+			if (!success)
+				return NotFound(new ApiResponseModel<object>(false, "Không tìm thấy loại sản phẩm để cập nhật", null, 404));
 
-                return Ok(updatedCategory);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Đã xảy ra lỗi khi cập nhật danh mục: {ex.Message}");
-            }
-        }
+			return Ok(new ApiResponseModel<object>(true, "Cập nhật loại sản phẩm thành công", null, 200));
+		}
 
-        // DELETE: api/category/{id}
-        [HttpDelete("{id}")]
-        public async Task<ActionResult> RemoveCategory(int id)
-        {
-            try
-            {
-                var isRemoved = await _categoryProductRepository.RemoveCategoryAsync(id);
-                if (!isRemoved)
-                {
-                    return NotFound($"Không tìm thấy danh mục với ID {id} hoặc không thể xóa vì danh mục có sản phẩm!");
-                }
+		[HttpDelete("{id}")]
+		public async Task<IActionResult> Delete(int id)
+		{
+			var success = await _categoryRepo.RemoveCategoryAsync(id);
+			if (!success)
+				return NotFound(new ApiResponseModel<object>(false, "Không tìm thấy loại sản phẩm để xoá", null, 404));
 
-                return Ok($"Danh mục đã được xóa thành công.");
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Đã xảy ra lỗi khi xóa danh mục: {ex.Message}");
-            }
-        }
-
-    }
+			return Ok(new ApiResponseModel<object>(true, "Xoá loại sản phẩm thành công", null, 200));
+		}
+	}
 }
-
